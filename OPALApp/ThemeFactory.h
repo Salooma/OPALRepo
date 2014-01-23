@@ -15,7 +15,7 @@
 
 + (instancetype)sharedThemeFactory;
 
-- (id <Theme>)buildThemeForKey:(AFThemeSelectionOption)themeKey;
+- (id <Theme>)buildThemeForKey:(OPThemeSelectionOption)themeKey;
 - (id <Theme>)buildThemeForSettingsKey;
 
 @end

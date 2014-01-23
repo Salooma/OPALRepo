@@ -7,10 +7,7 @@
 //
 
 #import "ThemeFactory.h"
-#import "SettingsManager.h"
-#import "BlueBeigeTheme.h"
-#import "BlackGrayTheme.h"
-#import "RedRoseTheme.h"
+
 
 @implementation ThemeFactory
 
@@ -26,21 +23,13 @@
     return sharedThemeFactory;
 }
 
-- (id <Theme>)buildThemeForKey:(AFThemeSelectionOption)themeKey
+- (id <Theme>)buildThemeForKey:(OPThemeSelectionOption)themeKey
 {
     // Return Theme object based on on key
     switch (themeKey) {
             
-        case AFThemeSelectionOptionBlueBeigeTheme:
-            return [[BlueBeigeTheme alloc] init];
-            break;
-            
-        case AFThemeSelectionOptionBlackGrayTheme:
-            return [[BlackGrayTheme alloc] init];
-            break;
-            
-        case AFThemeSelectionOptionRedRoseTheme:
-            return [[RedRoseTheme alloc] init];
+        case OPThemeSelectionOptionDefaultTheme:
+#warning Unimplemented method
             break;
             
         default:
@@ -52,7 +41,7 @@
 - (id <Theme>)buildThemeForSettingsKey
 {
     // Access userDefaults theme
-    AFThemeSelectionOption themeSelection = (AFThemeSelectionOption)[[SettingsManager sharedSettings] appTheme];
+    OPThemeSelectionOption themeSelection = (OPThemeSelectionOption)[[NSUserDefaults standardUserDefaults] integerForKey:OPThemeOption];
     
     return [self buildThemeForKey:themeSelection];
 }

@@ -7,7 +7,6 @@
 //
 
 #import "BlueBeigeTheme.h"
-#import "UIColor+Colours.h"
 
 @implementation BlueBeigeTheme
 
@@ -21,7 +20,7 @@
                        secondaryTextColor:[UIColor blackColor]];
 
     // Assign themeEnum to allow for ImageViewManagerFactory to handle images properly
-    self.themeEnum = AFThemeSelectionOptionBlueBeigeTheme;
+    self.themeEnum = OPThemeSelectionOptionDefaultTheme;
     
     return self;
 }

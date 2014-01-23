@@ -9,15 +9,8 @@
 #import "BaseTheme.h"
 #import "UINavigationBar+FlatUI.h"
 #import "FUIButton.h"
-#import "NSArray+Ordering.h"
-#import "ImageViewManagerFactory.h"
 
 @interface BaseTheme ()
-
-// Holds all brightness variants
-@property (nonatomic, strong) NSArray *tableViewCellColorMapping;
-// Keeps track of the last section
-@property (nonatomic) NSUInteger previousTableViewSection;
 
 @end
 
@@ -40,21 +33,9 @@
         self.primaryTextColor = textColor;
         self.secondaryTextColor = secondaryTextColor;
         
-        // Register for clearing of color mapping
-        [self addNotificationObserverForColorMapClearing];
     }
 
     return self;
-}
-
-#pragma mark - Build Helper Functions
-- (void)addNotificationObserverForColorMapClearing
-{
-    // Register for clearing notifications of the color map
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(clearColorMapping)
-                                                 name:AFColorMappingResetNotification
-                                               object:nil];
 }
 
 #pragma mark - Theme Protocol
@@ -132,121 +113,6 @@
     tableView.separatorColor = self.secondaryBackgroundColor;
 }
 
-- (void)themeTableViewCell:(UITableViewCell *)cell
-               inTableView:(UITableView *)tableView
-               atIndexPath:(NSIndexPath *)indexPath
-              reverseOrder:(BOOL)reverseOrder
-{
-
-    // Build color map array
-    [self buildColorMappingArrayInReverseOrder:reverseOrder
-                                   atIndexPath:indexPath
-                                   inTableView:tableView];
-    
-    // Theme the UITableViewCell
-    cell.backgroundColor = (UIColor *)self.tableViewCellColorMapping[(NSUInteger)indexPath.row];
-    cell.textLabel.textColor = self.primaryTextColor;
-    cell.textLabel.font = [UIFont fontWithName:@"Futura" size:[UIFont labelFontSize]];
-}
-
-- (void)buildColorMappingArrayInReverseOrder:(BOOL)reverse
-                                 atIndexPath:(NSIndexPath *)indexPath
-                                 inTableView:(UITableView *)tableView
-{
-    //  Reinitialize color mapping array on null or new section (UITableView section)
-    if (!(self.tableViewCellColorMapping ||
-          self.previousTableViewSection != indexPath.section))
-    {
-        self.previousTableViewSection = (NSUInteger)indexPath.section;
-        self.tableViewCellColorMapping = [self themeTableViewCellMappingInTableView:tableView
-                                                                          atSection:self.previousTableViewSection];
-        
-        // Reverse the array if needed
-        if (reverse)
-        {
-            NSArray *copyArray = [NSArray arrayWithArray:self.tableViewCellColorMapping];
-            self.tableViewCellColorMapping = [copyArray reverseArray];
-        }
-    }
-}
-
-- (NSArray *)themeTableViewCellMappingInTableView:(UITableView *)tableView
-                                        atSection:(NSUInteger)section
-{
-    // Assumes that the section size is fixed and can be divided into sections (3)
-    // Returns an array where each index corresponds to a different color on a row in a table section
-    NSUInteger rowCount = [tableView numberOfRowsInSection:section];
-    
-    // Check that the row count is able to be divided into three sections
-    assert(rowCount % 3 == 0 && rowCount > 0);
-    
-    NSMutableArray *colorMapping = [NSMutableArray arrayWithCapacity:rowCount];
-    
-    CGFloat h = 0, b = 0, s = 0, a = 0;
-    [self.primaryBackgroundColor getHue:&h saturation:&s brightness:&b alpha:&a];
-    
-    // Color Map Array is split into three sections:
-    // First section has a darker brightness
-    // Second section has normal brightness
-    // Third section has a higher brightness
-    NSInteger sectionSize = rowCount / 3;
-    CGFloat brightnessIncrement = 0.18f;
-    
-    // Darker section
-    for (NSInteger i = 0; i < sectionSize; i++){
-        colorMapping[i] = [UIColor colorWithHue:h
-                                     saturation:s
-                                     brightness:(b - brightnessIncrement)
-                                          alpha:a];
-    }
-    
-    // Normal brightness section
-    for (NSInteger i = sectionSize; i < 2 * sectionSize; i++)
-    {
-        colorMapping[i] = self.primaryBackgroundColor;
-    }
-    
-    // Lighter section
-    for (NSInteger i = 2 * sectionSize; i < 3 * sectionSize; i++)
-    {
-        colorMapping[i] = [UIColor colorWithHue:h
-                                     saturation:s
-                                     brightness:(b + brightnessIncrement)
-                                          alpha:a];
-    }
-    
-    return (NSArray *)colorMapping;
-}
-
-- (void)themeOptionCell:(UITableViewCell *)cell
-          withImageView:(UIImageView *)imageView
-         forThemeOption:(NSInteger)themeOption
-{
-    cell.backgroundColor = self.secondaryBackgroundColor;
-    cell.textLabel.textColor = self.secondaryTextColor;
-    
-    // Build the factory
-    ImageViewManagerFactory *factory = [ImageViewManagerFactory sharedImageViewManagerFactory];
-    id <ImageViewManager> imageViewManager = [factory buildImageViewManagerForThemeKey:self.themeEnum];
-    
-    switch (themeOption) {
-        case AFSettingsTableOptionSettings:
-            imageView.image = [imageViewManager settingsImage];
-            break;
-        case AFSettingsTableOptionBedTime:
-            imageView.image = [imageViewManager bedTimeImage];;
-            break;
-        case AFSettingsTableOptionWakeTime:
-            imageView.image = [imageViewManager wakeTimeImage];
-            break;
-        case AFSettingsTableOptionAlarm:
-            imageView.image = [imageViewManager alarmImage];
-        default:
-            imageView = nil;
-            break;
-    }
-}
-
 - (void)themeSwitch:(UISwitch *)switchControl
 {
     switchControl.onTintColor = self.primaryBackgroundColor;
@@ -274,19 +140,5 @@
     view.layer.borderColor = borderColor;
     view.layer.borderWidth = 1.5f;
 }
-
-#pragma mark - Target Action Method
-- (void)clearColorMapping
-{
-    self.tableViewCellColorMapping = nil;
-}
-
-#pragma mark - End of Life
-- (void)dealloc
-{
-    // Removing notification to avoid sending messages to null
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
-
 
 @end

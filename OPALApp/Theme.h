@@ -36,15 +36,6 @@
 // Theme the UITableView and its corresponding UITableViewCells in
 // ascending/descending brightness pattern
 - (void)themeTableView:(UITableView *)tableView;
-- (void)themeTableViewCell:(UITableViewCell *)cell
-               inTableView:(UITableView *)tableView
-               atIndexPath:(NSIndexPath *)indexPath
-              reverseOrder:(BOOL)reverseOrder;
-
-// Theme the image view that will be used in case of theming issues
-- (void)themeOptionCell:(UITableViewCell *)cell
-          withImageView:(UIImageView *)imageView
-         forThemeOption:(NSInteger)themeOption;
 
 // Theme the UISwitch
 - (void)themeSwitch:(UISwitch *)switchControl;
