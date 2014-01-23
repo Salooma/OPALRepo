@@ -45,6 +45,7 @@
 		EF5CACB81890B5C600E6F164 /* DefaultTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACB71890B5C600E6F164 /* DefaultTheme.m */; };
 		EF5CACBB1890B6AD00E6F164 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */; };
 		EF5CACBE1890B6B900E6F164 /* WayfinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */; };
+		EFFE3BDA1891DFE700E88371 /* TriageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE3BD91891DFE700E88371 /* TriageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,8 @@
 		EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WayfinderViewController.h; sourceTree = "<group>"; };
 		EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WayfinderViewController.m; sourceTree = "<group>"; };
+		EFFE3BD81891DFE700E88371 /* TriageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriageViewController.h; sourceTree = "<group>"; };
+		EFFE3BD91891DFE700E88371 /* TriageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 				EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */,
 				EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */,
 				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
+				EFFE3BD81891DFE700E88371 /* TriageViewController.h */,
+				EFFE3BD91891DFE700E88371 /* TriageViewController.m */,
 			);
 			path = OPALApp;
 			sourceTree = "<group>";
@@ -414,6 +419,7 @@
 				EF5CAC9E1890AF2700E6F164 /* UIImage+FlatUI.m in Sources */,
 				EF5CACAF1890AFE500E6F164 /* BaseTheme.m in Sources */,
 				EF5CAC971890AF2700E6F164 /* FUIPopoverBackgroundView.m in Sources */,
+				EFFE3BDA1891DFE700E88371 /* TriageViewController.m in Sources */,
 				EF5CACA61890AF2700E6F164 /* UIToolbar+FlatUI.m in Sources */,
 				EF5CAC9C1890AF2700E6F164 /* UIColor+FlatUI.m in Sources */,
 				EF5CACA51890AF2700E6F164 /* UITableViewCell+FlatUI.m in Sources */,
