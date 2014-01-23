@@ -9,7 +9,7 @@
             <objects>
                 <tabBarController definesPresentationContext="YES" id="yBf-X2-ivi" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="k6m-t6-orM"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="BDt-Ci-o2f">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="293" y="189"/>
         </scene>
-        <!--View Controller - Profile-->
+        <!--Profile View Controller - Profile-->
         <scene sceneID="Bvj-yu-PbA">
             <objects>
-                <viewController id="u7N-uS-BPS" sceneMemberID="viewController">
+                <viewController id="u7N-uS-BPS" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z7w-a2-nis"/>
                         <viewControllerLayoutGuide type="bottom" id="Suc-Uv-qkn"/>
@@ -76,10 +76,10 @@
             </objects>
             <point key="canvasLocation" x="773" y="181"/>
         </scene>
-        <!--View Controller - Wayfinder-->
+        <!--Wayfinder View Controller - Wayfinder-->
         <scene sceneID="Shh-zS-tkS">
             <objects>
-                <viewController id="1OJ-2Z-5wj" sceneMemberID="viewController">
+                <viewController id="1OJ-2Z-5wj" customClass="WayfinderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rtc-Fg-pry"/>
                         <viewControllerLayoutGuide type="bottom" id="iZo-bI-XxL"/>
@@ -95,10 +95,10 @@
             </objects>
             <point key="canvasLocation" x="761" y="-664"/>
         </scene>
-        <!--View Controller - Notifications-->
+        <!--Notification View Controller - Notifications-->
         <scene sceneID="Fs0-n7-bGf">
             <objects>
-                <viewController id="v54-pT-E6R" sceneMemberID="viewController">
+                <viewController id="v54-pT-E6R" customClass="NotificationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LIL-5a-QSx"/>
                         <viewControllerLayoutGuide type="bottom" id="Cv9-Zr-beH"/>

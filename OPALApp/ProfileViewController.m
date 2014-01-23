@@ -7,6 +7,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "BaseTheme.h"
+#import "ThemeFactory.h"
 
 @interface ProfileViewController ()
 
@@ -14,25 +16,23 @@
 
 @implementation ProfileViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)awakeFromNib
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    // This method is called when the storyboard file is loaded into memory
+    [super awakeFromNib];
+    
+    // Call the applyTheme on initialization of view
+    [self applyTheme];
 }
 
-- (void)viewDidLoad
+- (void)applyTheme
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // Ask factory to build <Theme> compliant object to use as our themeSetter
+    id <Theme> themeSetter = [[ThemeFactory sharedThemeFactory] buildThemeForSettingsKey];
+    
+    // Apply the themeSetters methods to apply to the view controller
+    [themeSetter themeViewBackground:self.view];
+    [themeSetter themeNavigationBar:self.navigationController.navigationBar];
 }
 
 @end

@@ -59,6 +59,8 @@
                                    NSForegroundColorAttributeName: [UIColor whiteColor]};
     
     // Adjust the status bar for whiteColor text
+    // NOTE this will only work if "View controller-based status bar appearance" is set to NO
+    // in Target > Info > Custom iOS Target Properties
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // Configure the navigation bars background color

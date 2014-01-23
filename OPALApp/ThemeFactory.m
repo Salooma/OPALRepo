@@ -7,7 +7,7 @@
 //
 
 #import "ThemeFactory.h"
-
+#import "DefaultTheme.h"
 
 @implementation ThemeFactory
 
@@ -29,7 +29,7 @@
     switch (themeKey) {
             
         case OPThemeSelectionOptionDefaultTheme:
-#warning Unimplemented method
+            return [[DefaultTheme alloc] init];
             break;
             
         default:
