@@ -7,15 +7,16 @@
 //
 
 #import "DefaultTheme.h"
+#import "UIColor+FlatUI.h"
 
 @implementation DefaultTheme
 
 - (instancetype)init
 {
     // Init with base class implementations
-    self = [super initWithBackgroundColor:[UIColor blueberryColor]
-                 secondaryBackgroundColor:[UIColor eggshellColor]
-        alternateSecondaryBackgroundColor:[UIColor blueberryColor]
+    self = [super initWithBackgroundColor:[UIColor oslerSalmonColor]
+                 secondaryBackgroundColor:[UIColor whiteColor]
+        alternateSecondaryBackgroundColor:[UIColor oslerSalmonColor]
                                 textColor:[UIColor whiteColor]
                        secondaryTextColor:[UIColor blackColor]];
     

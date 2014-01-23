@@ -114,6 +114,11 @@
     return [UIColor colorFromHexCode:@"7F8C8D"];
 }
 
++ (UIColor *) oslerSalmonColor
+{
+    return [UIColor colorFromHexCode:@"D97373"];
+}
+
 + (UIColor *) blendedColorWithForegroundColor:(UIColor *)foregroundColor
                               backgroundColor:(UIColor *)backgroundColor
                                  percentBlend:(CGFloat) percentBlend {
