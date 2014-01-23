@@ -1,14 +1,14 @@
 //
-//  BlueBeigeTheme.m
-//  SleepCycleSeven
+//  DefaultTheme.m
+//  OPALApp
 //
-//  Created by Alexander Figueroa on 12/23/2013.
-//  Copyright (c) 2013 Alexander Figueroa. All rights reserved.
+//  Created by Alexander Figueroa on 1/22/2014.
+//  Copyright (c) 2014 Alexander Figueroa. All rights reserved.
 //
 
-#import "BlueBeigeTheme.h"
+#import "DefaultTheme.h"
 
-@implementation BlueBeigeTheme
+@implementation DefaultTheme
 
 - (instancetype)init
 {
@@ -18,11 +18,12 @@
         alternateSecondaryBackgroundColor:[UIColor blueberryColor]
                                 textColor:[UIColor whiteColor]
                        secondaryTextColor:[UIColor blackColor]];
-
+    
     // Assign themeEnum to allow for ImageViewManagerFactory to handle images properly
     self.themeEnum = OPThemeSelectionOptionDefaultTheme;
     
     return self;
 }
+
 
 @end
