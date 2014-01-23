@@ -1,0 +1,657 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EF5CAC341890774200E6F164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC331890774200E6F164 /* Foundation.framework */; };
+		EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC351890774200E6F164 /* CoreGraphics.framework */; };
+		EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC371890774200E6F164 /* UIKit.framework */; };
+		EF5CAC3E1890774200E6F164 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF5CAC3C1890774200E6F164 /* InfoPlist.strings */; };
+		EF5CAC401890774200E6F164 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC3F1890774200E6F164 /* main.m */; };
+		EF5CAC441890774200E6F164 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC431890774200E6F164 /* AppDelegate.m */; };
+		EF5CAC471890774200E6F164 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF5CAC451890774200E6F164 /* Main.storyboard */; };
+		EF5CAC4C1890774200E6F164 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF5CAC4B1890774200E6F164 /* Images.xcassets */; };
+		EF5CAC531890774300E6F164 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC521890774200E6F164 /* XCTest.framework */; };
+		EF5CAC541890774300E6F164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC331890774200E6F164 /* Foundation.framework */; };
+		EF5CAC551890774300E6F164 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC371890774200E6F164 /* UIKit.framework */; };
+		EF5CAC5D1890774300E6F164 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EF5CAC5B1890774300E6F164 /* InfoPlist.strings */; };
+		EF5CAC5F1890774300E6F164 /* OPALAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC5E1890774300E6F164 /* OPALAppTests.m */; };
+		EF5CAC941890AF2700E6F164 /* FUIAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC6F1890AF2700E6F164 /* FUIAlertView.m */; };
+		EF5CAC951890AF2700E6F164 /* FUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC711890AF2700E6F164 /* FUIButton.m */; };
+		EF5CAC961890AF2700E6F164 /* FUICellBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC731890AF2700E6F164 /* FUICellBackgroundView.m */; };
+		EF5CAC971890AF2700E6F164 /* FUIPopoverBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC751890AF2700E6F164 /* FUIPopoverBackgroundView.m */; };
+		EF5CAC981890AF2700E6F164 /* FUISegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC771890AF2700E6F164 /* FUISegmentedControl.m */; };
+		EF5CAC991890AF2700E6F164 /* FUISwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC791890AF2700E6F164 /* FUISwitch.m */; };
+		EF5CAC9A1890AF2700E6F164 /* FUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC7B1890AF2700E6F164 /* FUITextField.m */; };
+		EF5CAC9B1890AF2700E6F164 /* UIBarButtonItem+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC7D1890AF2700E6F164 /* UIBarButtonItem+FlatUI.m */; };
+		EF5CAC9C1890AF2700E6F164 /* UIColor+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC7F1890AF2700E6F164 /* UIColor+FlatUI.m */; };
+		EF5CAC9D1890AF2700E6F164 /* UIFont+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC811890AF2700E6F164 /* UIFont+FlatUI.m */; };
+		EF5CAC9E1890AF2700E6F164 /* UIImage+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC831890AF2700E6F164 /* UIImage+FlatUI.m */; };
+		EF5CAC9F1890AF2700E6F164 /* UINavigationBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC851890AF2700E6F164 /* UINavigationBar+FlatUI.m */; };
+		EF5CACA01890AF2700E6F164 /* UIPopoverController+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC871890AF2700E6F164 /* UIPopoverController+FlatUI.m */; };
+		EF5CACA11890AF2700E6F164 /* UIProgressView+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC891890AF2700E6F164 /* UIProgressView+FlatUI.m */; };
+		EF5CACA21890AF2700E6F164 /* UISlider+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC8B1890AF2700E6F164 /* UISlider+FlatUI.m */; };
+		EF5CACA31890AF2700E6F164 /* UIStepper+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC8D1890AF2700E6F164 /* UIStepper+FlatUI.m */; };
+		EF5CACA41890AF2700E6F164 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC8F1890AF2700E6F164 /* UITabBar+FlatUI.m */; };
+		EF5CACA51890AF2700E6F164 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC911890AF2700E6F164 /* UITableViewCell+FlatUI.m */; };
+		EF5CACA61890AF2700E6F164 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CAC931890AF2700E6F164 /* UIToolbar+FlatUI.m */; };
+		EF5CACAF1890AFE500E6F164 /* BaseTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACAA1890AFE500E6F164 /* BaseTheme.m */; };
+		EF5CACB01890AFE500E6F164 /* ThemeFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACAC1890AFE500E6F164 /* ThemeFactory.m */; };
+		EF5CACB41890B07A00E6F164 /* Defaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = EF5CACB31890B07A00E6F164 /* Defaults.plist */; };
+		EF5CACB81890B5C600E6F164 /* DefaultTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACB71890B5C600E6F164 /* DefaultTheme.m */; };
+		EF5CACBB1890B6AD00E6F164 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */; };
+		EF5CACBE1890B6B900E6F164 /* WayfinderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */; };
+		EF5CACC11890B6C300E6F164 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF5CACC01890B6C300E6F164 /* ProfileViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EF5CAC561890774300E6F164 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EF5CAC281890774200E6F164 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5CAC2F1890774200E6F164;
+			remoteInfo = OPALApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EF5CAC301890774200E6F164 /* OPALApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPALApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5CAC331890774200E6F164 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EF5CAC351890774200E6F164 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EF5CAC371890774200E6F164 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		EF5CAC3B1890774200E6F164 /* OPALApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OPALApp-Info.plist"; sourceTree = "<group>"; };
+		EF5CAC3D1890774200E6F164 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF5CAC3F1890774200E6F164 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		EF5CAC411890774200E6F164 /* OPALApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OPALApp-Prefix.pch"; sourceTree = "<group>"; };
+		EF5CAC421890774200E6F164 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		EF5CAC431890774200E6F164 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		EF5CAC461890774200E6F164 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EF5CAC4B1890774200E6F164 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EF5CAC511890774200E6F164 /* OPALAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OPALAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF5CAC521890774200E6F164 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EF5CAC5A1890774300E6F164 /* OPALAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OPALAppTests-Info.plist"; sourceTree = "<group>"; };
+		EF5CAC5C1890774300E6F164 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EF5CAC5E1890774300E6F164 /* OPALAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPALAppTests.m; sourceTree = "<group>"; };
+		EF5CAC6D1890AF2700E6F164 /* FlatUIKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatUIKit.h; sourceTree = "<group>"; };
+		EF5CAC6E1890AF2700E6F164 /* FUIAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIAlertView.h; sourceTree = "<group>"; };
+		EF5CAC6F1890AF2700E6F164 /* FUIAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIAlertView.m; sourceTree = "<group>"; };
+		EF5CAC701890AF2700E6F164 /* FUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIButton.h; sourceTree = "<group>"; };
+		EF5CAC711890AF2700E6F164 /* FUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIButton.m; sourceTree = "<group>"; };
+		EF5CAC721890AF2700E6F164 /* FUICellBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUICellBackgroundView.h; sourceTree = "<group>"; };
+		EF5CAC731890AF2700E6F164 /* FUICellBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUICellBackgroundView.m; sourceTree = "<group>"; };
+		EF5CAC741890AF2700E6F164 /* FUIPopoverBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUIPopoverBackgroundView.h; sourceTree = "<group>"; };
+		EF5CAC751890AF2700E6F164 /* FUIPopoverBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUIPopoverBackgroundView.m; sourceTree = "<group>"; };
+		EF5CAC761890AF2700E6F164 /* FUISegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISegmentedControl.h; sourceTree = "<group>"; };
+		EF5CAC771890AF2700E6F164 /* FUISegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISegmentedControl.m; sourceTree = "<group>"; };
+		EF5CAC781890AF2700E6F164 /* FUISwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUISwitch.h; sourceTree = "<group>"; };
+		EF5CAC791890AF2700E6F164 /* FUISwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUISwitch.m; sourceTree = "<group>"; };
+		EF5CAC7A1890AF2700E6F164 /* FUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FUITextField.h; sourceTree = "<group>"; };
+		EF5CAC7B1890AF2700E6F164 /* FUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FUITextField.m; sourceTree = "<group>"; };
+		EF5CAC7C1890AF2700E6F164 /* UIBarButtonItem+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC7D1890AF2700E6F164 /* UIBarButtonItem+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC7E1890AF2700E6F164 /* UIColor+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC7F1890AF2700E6F164 /* UIColor+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC801890AF2700E6F164 /* UIFont+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC811890AF2700E6F164 /* UIFont+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC821890AF2700E6F164 /* UIImage+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC831890AF2700E6F164 /* UIImage+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC841890AF2700E6F164 /* UINavigationBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC851890AF2700E6F164 /* UINavigationBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC861890AF2700E6F164 /* UIPopoverController+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPopoverController+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC871890AF2700E6F164 /* UIPopoverController+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPopoverController+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC881890AF2700E6F164 /* UIProgressView+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC891890AF2700E6F164 /* UIProgressView+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC8A1890AF2700E6F164 /* UISlider+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC8B1890AF2700E6F164 /* UISlider+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC8C1890AF2700E6F164 /* UIStepper+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC8D1890AF2700E6F164 /* UIStepper+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC8E1890AF2700E6F164 /* UITabBar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC8F1890AF2700E6F164 /* UITabBar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC901890AF2700E6F164 /* UITableViewCell+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC911890AF2700E6F164 /* UITableViewCell+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CAC921890AF2700E6F164 /* UIToolbar+FlatUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+FlatUI.h"; sourceTree = "<group>"; };
+		EF5CAC931890AF2700E6F164 /* UIToolbar+FlatUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+FlatUI.m"; sourceTree = "<group>"; };
+		EF5CACA81890AFE500E6F164 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		EF5CACA91890AFE500E6F164 /* BaseTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTheme.h; sourceTree = "<group>"; };
+		EF5CACAA1890AFE500E6F164 /* BaseTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTheme.m; sourceTree = "<group>"; };
+		EF5CACAB1890AFE500E6F164 /* ThemeFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThemeFactory.h; sourceTree = "<group>"; };
+		EF5CACAC1890AFE500E6F164 /* ThemeFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeFactory.m; sourceTree = "<group>"; };
+		EF5CACB31890B07A00E6F164 /* Defaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Defaults.plist; sourceTree = "<group>"; };
+		EF5CACB51890B1AA00E6F164 /* OPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OPConstants.h; sourceTree = "<group>"; };
+		EF5CACB61890B5C600E6F164 /* DefaultTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DefaultTheme.h; sourceTree = "<group>"; };
+		EF5CACB71890B5C600E6F164 /* DefaultTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DefaultTheme.m; sourceTree = "<group>"; };
+		EF5CACB91890B6AD00E6F164 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WayfinderViewController.h; sourceTree = "<group>"; };
+		EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WayfinderViewController.m; sourceTree = "<group>"; };
+		EF5CACBF1890B6C300E6F164 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		EF5CACC01890B6C300E6F164 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EF5CAC2D1890774200E6F164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */,
+				EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */,
+				EF5CAC341890774200E6F164 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5CAC4E1890774200E6F164 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CAC531890774300E6F164 /* XCTest.framework in Frameworks */,
+				EF5CAC551890774300E6F164 /* UIKit.framework in Frameworks */,
+				EF5CAC541890774300E6F164 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EF5CAC271890774200E6F164 = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC391890774200E6F164 /* OPALApp */,
+				EF5CAC581890774300E6F164 /* OPALAppTests */,
+				EF5CAC321890774200E6F164 /* Frameworks */,
+				EF5CAC311890774200E6F164 /* Products */,
+				EF5CACA71890AF3000E6F164 /* Libraries */,
+			);
+			sourceTree = "<group>";
+		};
+		EF5CAC311890774200E6F164 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC301890774200E6F164 /* OPALApp.app */,
+				EF5CAC511890774200E6F164 /* OPALAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EF5CAC321890774200E6F164 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC331890774200E6F164 /* Foundation.framework */,
+				EF5CAC351890774200E6F164 /* CoreGraphics.framework */,
+				EF5CAC371890774200E6F164 /* UIKit.framework */,
+				EF5CAC521890774200E6F164 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EF5CAC391890774200E6F164 /* OPALApp */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CACB31890B07A00E6F164 /* Defaults.plist */,
+				EF5CACB51890B1AA00E6F164 /* OPConstants.h */,
+				EF5CAC421890774200E6F164 /* AppDelegate.h */,
+				EF5CAC431890774200E6F164 /* AppDelegate.m */,
+				EF5CAC451890774200E6F164 /* Main.storyboard */,
+				EF5CAC4B1890774200E6F164 /* Images.xcassets */,
+				EF5CACB21890AFF100E6F164 /* Theming */,
+				EF5CAC3A1890774200E6F164 /* Supporting Files */,
+				EF5CACB91890B6AD00E6F164 /* NotificationViewController.h */,
+				EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */,
+				EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */,
+				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
+				EF5CACBF1890B6C300E6F164 /* ProfileViewController.h */,
+				EF5CACC01890B6C300E6F164 /* ProfileViewController.m */,
+			);
+			path = OPALApp;
+			sourceTree = "<group>";
+		};
+		EF5CAC3A1890774200E6F164 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC3B1890774200E6F164 /* OPALApp-Info.plist */,
+				EF5CAC3C1890774200E6F164 /* InfoPlist.strings */,
+				EF5CAC3F1890774200E6F164 /* main.m */,
+				EF5CAC411890774200E6F164 /* OPALApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF5CAC581890774300E6F164 /* OPALAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC5E1890774300E6F164 /* OPALAppTests.m */,
+				EF5CAC591890774300E6F164 /* Supporting Files */,
+			);
+			path = OPALAppTests;
+			sourceTree = "<group>";
+		};
+		EF5CAC591890774300E6F164 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC5A1890774300E6F164 /* OPALAppTests-Info.plist */,
+				EF5CAC5B1890774300E6F164 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF5CAC6C1890AF2700E6F164 /* FlatUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC6D1890AF2700E6F164 /* FlatUIKit.h */,
+				EF5CAC6E1890AF2700E6F164 /* FUIAlertView.h */,
+				EF5CAC6F1890AF2700E6F164 /* FUIAlertView.m */,
+				EF5CAC701890AF2700E6F164 /* FUIButton.h */,
+				EF5CAC711890AF2700E6F164 /* FUIButton.m */,
+				EF5CAC721890AF2700E6F164 /* FUICellBackgroundView.h */,
+				EF5CAC731890AF2700E6F164 /* FUICellBackgroundView.m */,
+				EF5CAC741890AF2700E6F164 /* FUIPopoverBackgroundView.h */,
+				EF5CAC751890AF2700E6F164 /* FUIPopoverBackgroundView.m */,
+				EF5CAC761890AF2700E6F164 /* FUISegmentedControl.h */,
+				EF5CAC771890AF2700E6F164 /* FUISegmentedControl.m */,
+				EF5CAC781890AF2700E6F164 /* FUISwitch.h */,
+				EF5CAC791890AF2700E6F164 /* FUISwitch.m */,
+				EF5CAC7A1890AF2700E6F164 /* FUITextField.h */,
+				EF5CAC7B1890AF2700E6F164 /* FUITextField.m */,
+				EF5CAC7C1890AF2700E6F164 /* UIBarButtonItem+FlatUI.h */,
+				EF5CAC7D1890AF2700E6F164 /* UIBarButtonItem+FlatUI.m */,
+				EF5CAC7E1890AF2700E6F164 /* UIColor+FlatUI.h */,
+				EF5CAC7F1890AF2700E6F164 /* UIColor+FlatUI.m */,
+				EF5CAC801890AF2700E6F164 /* UIFont+FlatUI.h */,
+				EF5CAC811890AF2700E6F164 /* UIFont+FlatUI.m */,
+				EF5CAC821890AF2700E6F164 /* UIImage+FlatUI.h */,
+				EF5CAC831890AF2700E6F164 /* UIImage+FlatUI.m */,
+				EF5CAC841890AF2700E6F164 /* UINavigationBar+FlatUI.h */,
+				EF5CAC851890AF2700E6F164 /* UINavigationBar+FlatUI.m */,
+				EF5CAC861890AF2700E6F164 /* UIPopoverController+FlatUI.h */,
+				EF5CAC871890AF2700E6F164 /* UIPopoverController+FlatUI.m */,
+				EF5CAC881890AF2700E6F164 /* UIProgressView+FlatUI.h */,
+				EF5CAC891890AF2700E6F164 /* UIProgressView+FlatUI.m */,
+				EF5CAC8A1890AF2700E6F164 /* UISlider+FlatUI.h */,
+				EF5CAC8B1890AF2700E6F164 /* UISlider+FlatUI.m */,
+				EF5CAC8C1890AF2700E6F164 /* UIStepper+FlatUI.h */,
+				EF5CAC8D1890AF2700E6F164 /* UIStepper+FlatUI.m */,
+				EF5CAC8E1890AF2700E6F164 /* UITabBar+FlatUI.h */,
+				EF5CAC8F1890AF2700E6F164 /* UITabBar+FlatUI.m */,
+				EF5CAC901890AF2700E6F164 /* UITableViewCell+FlatUI.h */,
+				EF5CAC911890AF2700E6F164 /* UITableViewCell+FlatUI.m */,
+				EF5CAC921890AF2700E6F164 /* UIToolbar+FlatUI.h */,
+				EF5CAC931890AF2700E6F164 /* UIToolbar+FlatUI.m */,
+			);
+			name = FlatUIKit;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		EF5CACA71890AF3000E6F164 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CAC6C1890AF2700E6F164 /* FlatUIKit */,
+			);
+			name = Libraries;
+			path = OPALApp;
+			sourceTree = "<group>";
+		};
+		EF5CACB21890AFF100E6F164 /* Theming */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CACA81890AFE500E6F164 /* Theme.h */,
+				EF5CACA91890AFE500E6F164 /* BaseTheme.h */,
+				EF5CACAA1890AFE500E6F164 /* BaseTheme.m */,
+				EF5CACAB1890AFE500E6F164 /* ThemeFactory.h */,
+				EF5CACAC1890AFE500E6F164 /* ThemeFactory.m */,
+				EF5CACB61890B5C600E6F164 /* DefaultTheme.h */,
+				EF5CACB71890B5C600E6F164 /* DefaultTheme.m */,
+			);
+			name = Theming;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EF5CAC2F1890774200E6F164 /* OPALApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5CAC621890774300E6F164 /* Build configuration list for PBXNativeTarget "OPALApp" */;
+			buildPhases = (
+				EF5CAC2C1890774200E6F164 /* Sources */,
+				EF5CAC2D1890774200E6F164 /* Frameworks */,
+				EF5CAC2E1890774200E6F164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OPALApp;
+			productName = OPALApp;
+			productReference = EF5CAC301890774200E6F164 /* OPALApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EF5CAC501890774200E6F164 /* OPALAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EF5CAC651890774300E6F164 /* Build configuration list for PBXNativeTarget "OPALAppTests" */;
+			buildPhases = (
+				EF5CAC4D1890774200E6F164 /* Sources */,
+				EF5CAC4E1890774200E6F164 /* Frameworks */,
+				EF5CAC4F1890774200E6F164 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF5CAC571890774300E6F164 /* PBXTargetDependency */,
+			);
+			name = OPALAppTests;
+			productName = OPALAppTests;
+			productReference = EF5CAC511890774200E6F164 /* OPALAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EF5CAC281890774200E6F164 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Alexander Figueroa";
+				TargetAttributes = {
+					EF5CAC501890774200E6F164 = {
+						TestTargetID = EF5CAC2F1890774200E6F164;
+					};
+				};
+			};
+			buildConfigurationList = EF5CAC2B1890774200E6F164 /* Build configuration list for PBXProject "OPALApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EF5CAC271890774200E6F164;
+			productRefGroup = EF5CAC311890774200E6F164 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EF5CAC2F1890774200E6F164 /* OPALApp */,
+				EF5CAC501890774200E6F164 /* OPALAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EF5CAC2E1890774200E6F164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CACB41890B07A00E6F164 /* Defaults.plist in Resources */,
+				EF5CAC4C1890774200E6F164 /* Images.xcassets in Resources */,
+				EF5CAC3E1890774200E6F164 /* InfoPlist.strings in Resources */,
+				EF5CAC471890774200E6F164 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5CAC4F1890774200E6F164 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CAC5D1890774300E6F164 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EF5CAC2C1890774200E6F164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CACA11890AF2700E6F164 /* UIProgressView+FlatUI.m in Sources */,
+				EF5CAC9F1890AF2700E6F164 /* UINavigationBar+FlatUI.m in Sources */,
+				EF5CAC9A1890AF2700E6F164 /* FUITextField.m in Sources */,
+				EF5CAC441890774200E6F164 /* AppDelegate.m in Sources */,
+				EF5CAC401890774200E6F164 /* main.m in Sources */,
+				EF5CACA01890AF2700E6F164 /* UIPopoverController+FlatUI.m in Sources */,
+				EF5CACBE1890B6B900E6F164 /* WayfinderViewController.m in Sources */,
+				EF5CACB81890B5C600E6F164 /* DefaultTheme.m in Sources */,
+				EF5CAC961890AF2700E6F164 /* FUICellBackgroundView.m in Sources */,
+				EF5CAC981890AF2700E6F164 /* FUISegmentedControl.m in Sources */,
+				EF5CAC991890AF2700E6F164 /* FUISwitch.m in Sources */,
+				EF5CAC9E1890AF2700E6F164 /* UIImage+FlatUI.m in Sources */,
+				EF5CACAF1890AFE500E6F164 /* BaseTheme.m in Sources */,
+				EF5CAC971890AF2700E6F164 /* FUIPopoverBackgroundView.m in Sources */,
+				EF5CACA61890AF2700E6F164 /* UIToolbar+FlatUI.m in Sources */,
+				EF5CAC9C1890AF2700E6F164 /* UIColor+FlatUI.m in Sources */,
+				EF5CACA51890AF2700E6F164 /* UITableViewCell+FlatUI.m in Sources */,
+				EF5CAC951890AF2700E6F164 /* FUIButton.m in Sources */,
+				EF5CACA41890AF2700E6F164 /* UITabBar+FlatUI.m in Sources */,
+				EF5CACC11890B6C300E6F164 /* ProfileViewController.m in Sources */,
+				EF5CACBB1890B6AD00E6F164 /* NotificationViewController.m in Sources */,
+				EF5CAC941890AF2700E6F164 /* FUIAlertView.m in Sources */,
+				EF5CAC9B1890AF2700E6F164 /* UIBarButtonItem+FlatUI.m in Sources */,
+				EF5CACB01890AFE500E6F164 /* ThemeFactory.m in Sources */,
+				EF5CAC9D1890AF2700E6F164 /* UIFont+FlatUI.m in Sources */,
+				EF5CACA31890AF2700E6F164 /* UIStepper+FlatUI.m in Sources */,
+				EF5CACA21890AF2700E6F164 /* UISlider+FlatUI.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EF5CAC4D1890774200E6F164 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF5CAC5F1890774300E6F164 /* OPALAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EF5CAC571890774300E6F164 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EF5CAC2F1890774200E6F164 /* OPALApp */;
+			targetProxy = EF5CAC561890774300E6F164 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EF5CAC3C1890774200E6F164 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF5CAC3D1890774200E6F164 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EF5CAC451890774200E6F164 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF5CAC461890774200E6F164 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EF5CAC5B1890774300E6F164 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EF5CAC5C1890774300E6F164 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EF5CAC601890774300E6F164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		EF5CAC611890774300E6F164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EF5CAC631890774300E6F164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
+				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		EF5CAC641890774300E6F164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
+				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EF5CAC661890774300E6F164 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OPALApp.app/OPALApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "OPALAppTests/OPALAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EF5CAC671890774300E6F164 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/OPALApp.app/OPALApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
+				INFOPLIST_FILE = "OPALAppTests/OPALAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EF5CAC2B1890774200E6F164 /* Build configuration list for PBXProject "OPALApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5CAC601890774300E6F164 /* Debug */,
+				EF5CAC611890774300E6F164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5CAC621890774300E6F164 /* Build configuration list for PBXNativeTarget "OPALApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5CAC631890774300E6F164 /* Debug */,
+				EF5CAC641890774300E6F164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EF5CAC651890774300E6F164 /* Build configuration list for PBXNativeTarget "OPALAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF5CAC661890774300E6F164 /* Debug */,
+				EF5CAC671890774300E6F164 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EF5CAC281890774200E6F164 /* Project object */;
+}
