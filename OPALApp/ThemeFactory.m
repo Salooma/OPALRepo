@@ -15,6 +15,7 @@
 {
     static ThemeFactory *sharedThemeFactory = nil;
     
+    // Thread call to ensure method is initialized once
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedThemeFactory = [[ThemeFactory alloc] init];
