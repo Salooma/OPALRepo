@@ -21,7 +21,6 @@ DerivedData
 
 # CocoaPods
 Pods
-*.pbxproj
 *.xcworkspacedata
 *.ttf
 *.json
