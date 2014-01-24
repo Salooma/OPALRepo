@@ -21,8 +21,10 @@
     [super awakeFromNib];
     
     [self applyTheme];
-    
     [self registerForKeyBoardNotification];
+    
+    // Assign the delegate property for the UITextField
+    self.pinTextField.delegate = (id <UITextFieldDelegate>)self;
 }
 
 #pragma mark - Theming Methods
@@ -75,6 +77,17 @@
 - (void)setViewMovedUp:(BOOL)movedUp
 {
     
+}
+
+#pragma mark - UITextFieldDelegate
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    if ([textField isEqual:self.pinTextField])
+    {
+        // Move the main view so keyboard does not hide it
+        if (CGRectGetMinY(self.view.frame) >= 0)
+            [self setViewMovedUp:YES];
+    }
 }
 
 #pragma mark - Cleanup

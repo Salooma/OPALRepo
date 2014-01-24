@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TriageViewController : UIViewController
+@interface TriageViewController : UIViewController <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *pinLabel;
-
 @property (weak, nonatomic) IBOutlet UITextField *pinTextField;
 
 @end
