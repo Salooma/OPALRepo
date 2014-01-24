@@ -143,4 +143,9 @@
     view.layer.borderWidth = 1.5f;
 }
 
+- (void)themeTabBar:(UITabBar *)tabBar
+{
+    tabBar.backgroundColor = self.primaryBackgroundColor;
+}
+
 @end

@@ -49,4 +49,7 @@
 // Theme the border used for a given view
 - (void)themeBorderForView:(UIView *)view visible:(BOOL)isVisible;
 
+// Theme the Tab bar the same as the navigation bar
+- (void)themeTabBar:(UITabBar *)tabBar;
+
 @end

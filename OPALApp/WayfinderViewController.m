@@ -33,6 +33,7 @@
     // Apply the themeSetters methods to apply to the view controller
     [themeSetter themeViewBackground:self.view];
     [themeSetter themeNavigationBar:self.navigationController.navigationBar];
+    [themeSetter themeTabBar:self.tabBarController.tabBar];
 }
 
 @end
