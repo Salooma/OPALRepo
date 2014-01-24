@@ -10,4 +10,8 @@
 
 @interface TriageViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *pinLabel;
+
+@property (weak, nonatomic) IBOutlet UITextField *pinTextField;
+
 @end
