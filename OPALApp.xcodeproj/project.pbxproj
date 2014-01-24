@@ -198,12 +198,7 @@
 				EF5CAC4B1890774200E6F164 /* Images.xcassets */,
 				EF5CACB21890AFF100E6F164 /* Theming */,
 				EF5CAC3A1890774200E6F164 /* Supporting Files */,
-				EF5CACB91890B6AD00E6F164 /* NotificationViewController.h */,
-				EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */,
-				EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */,
-				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
-				EFFE3BD81891DFE700E88371 /* TriageViewController.h */,
-				EFFE3BD91891DFE700E88371 /* TriageViewController.m */,
+				EFBB056818924C0300A7D8A5 /* Controllers */,
 			);
 			path = OPALApp;
 			sourceTree = "<group>";
@@ -305,6 +300,19 @@
 				EF5CACB71890B5C600E6F164 /* DefaultTheme.m */,
 			);
 			name = Theming;
+			sourceTree = "<group>";
+		};
+		EFBB056818924C0300A7D8A5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF5CACB91890B6AD00E6F164 /* NotificationViewController.h */,
+				EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */,
+				EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */,
+				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
+				EFFE3BD81891DFE700E88371 /* TriageViewController.h */,
+				EFFE3BD91891DFE700E88371 /* TriageViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

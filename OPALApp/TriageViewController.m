@@ -41,11 +41,9 @@
 
 - (void) registerForKeyBoardNotification
 {
-    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillShow)) name:(UIKeyboardWillShowNotification) object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillShow:)) name:(UIKeyboardWillShowNotification) object:nil];
  
-    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardDidShow)) name:(UIKeyboardDidShowNotification) object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillHide)) name:(UIKeyboardWillHideNotification) object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillHide:)) name:(UIKeyboardWillHideNotification) object:nil];
 }
 
 - (void)deregisterForKeyBoardNotification
@@ -54,17 +52,27 @@
 }
 
 #pragma mark - Keyboard Notification Methods
-- (void)keyboardWillShow
+/*
+ Thanks to StackOverflow: stackoverflow.com/questions/1126726/how-to-make-a-uitextfield-move-up-when-keyboard-is-present
+ */
+- (void)keyboardWillShow:(NSNotification *)notification
 {
-    
+    // Animate the current view out of the way
+    if (CGRectGetMinY(self.view.frame) >= 0)
+        [self setViewMovedUp:YES];
+    else if (CGRectGetMinY(self.view.frame) < 0)
+        [self setViewMovedUp:NO];
 }
 
-- (void)keyboardDidShow
+- (void)keyboardWillHide:(NSNotification *)notification
 {
-    
+    if (CGRectGetMinY(self.view.frame) >= 0)
+        [self setViewMovedUp:YES];
+    else if (CGRectGetMinY(self.view.frame) < 0)
+        [self setViewMovedUp:NO];
 }
 
-- (void)keyboardWillHide
+- (void)setViewMovedUp:(BOOL)movedUp
 {
     
 }
