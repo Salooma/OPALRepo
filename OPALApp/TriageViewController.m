@@ -12,6 +12,9 @@
 
 @interface TriageViewController ()
 
+// Size of keyboard
+@property (nonatomic) CGSize keyboardSize;
+
 @end
 
 @implementation TriageViewController
@@ -59,6 +62,10 @@
  */
 - (void)keyboardWillShow:(NSNotification *)notification
 {
+    // Grab keyboard size
+    NSDictionary *notificationInfo = [notification userInfo];
+    self.keyboardSize = [[notificationInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
     // Animate the current view out of the way
     if (CGRectGetMinY(self.view.frame) >= 0)
         [self setViewMovedUp:YES];
@@ -76,7 +83,29 @@
 
 - (void)setViewMovedUp:(BOOL)movedUp
 {
+    // Move the view up an down whenever keyboard is shown/dismissed
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
     
+    CGRect viewFrame = self.view.frame;
+    
+    if (movedUp)
+    {
+        // Shift everything up by the height of the keyboard
+        viewFrame.origin.y -= self.keyboardSize.height;
+        viewFrame.size.height += self.keyboardSize.height;
+    } else {
+        // Revert back to normal state
+    }
+    
+    self.view.frame = viewFrame;
+    
+    [UIView commitAnimations];
+}
+
+- (void)adjustForKeyboardOffset:(UIView *)view
+{
+
 }
 
 #pragma mark - UITextFieldDelegate
