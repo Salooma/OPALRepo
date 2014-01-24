@@ -92,8 +92,7 @@
     if (movedUp)
     {
         // Shift everything up by the height of the keyboard
-        viewFrame.origin.y -= self.keyboardSize.height;
-        viewFrame.size.height += self.keyboardSize.height;
+        viewFrame.origin.y -= self.keyboardSize.height * 0.0;
     } else {
         // Revert back to normal state
     }
