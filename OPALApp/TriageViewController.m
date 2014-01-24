@@ -21,8 +21,11 @@
     [super awakeFromNib];
     
     [self applyTheme];
+    
+    [self registerForKeyBoardNotification];
 }
 
+#pragma mark - theming methods
 - (void)applyTheme
 {
     // Ask factory to build <Theme> compliant object to use as our themeSetter
@@ -33,5 +36,27 @@
     [themeSetter themeNavigationBar:self.navigationController.navigationBar];
     [themeSetter themeTabBar:self.tabBarController.tabBar];
 }
+
+#pragma mark - notification registering and deregistering
+
+- (void) registerForKeyBoardNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillShow)) name:(UIKeyboardWillShowNotification) object:nil];
+ 
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardDidShow)) name:(UIKeyboardDidShowNotification) object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:(self) selector:(@selector(keyboardWillHide)) name:(UIKeyboardWillHideNotification) object:nil];
+}
+
+- (void)deregisterForKeyBoardNotification{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - cleanup
+- (void) dealloc
+{
+    [self deregisterForKeyBoardNotification];
+}
+
 
 @end
