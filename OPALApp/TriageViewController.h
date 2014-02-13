@@ -8,9 +8,28 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol PasswordHandler;
+
 @interface TriageViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UILabel *pinLabel;
-@property (weak, nonatomic) IBOutlet UITextField *pinTextField;
+@property (nonatomic, strong) id <PasswordHandler> passwordHandler;
+@property (assign) BOOL isCurrentlyOnScreen;
+
+@property (nonatomic, strong) UIColor *navigationBarTintColor;
+@property (nonatomic, strong) UIColor *navigationTintColor;
+@property (nonatomic, strong) UIColor *navigationTitleColor;
+
+@end
+
+@protocol PasswordHandler <NSObject>
+
+@required
+- (BOOL)triageViewController:(TriageViewController *)triageViewController verifyPassword:(NSString *)password;
+
+@optional
+// This serves, mostly, as an "update stuff after dismissing"
+- (void)maxNumberOfFailedAttemptsReached;
+- (void)passcodeWasEnteredSuccessfully;
+- (void)passcodeViewControllerWasDismissed;
 
 @end

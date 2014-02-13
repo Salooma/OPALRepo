@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CB0838F18AC08F300F36036 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */; };
+		5CB0839218AC1B2B00F36036 /* PasswordHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0839118AC1B2B00F36036 /* PasswordHandler.m */; };
 		EF5CAC341890774200E6F164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC331890774200E6F164 /* Foundation.framework */; };
 		EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC351890774200E6F164 /* CoreGraphics.framework */; };
 		EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC371890774200E6F164 /* UIKit.framework */; };
@@ -59,6 +61,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5CB0838C18AC08F300F36036 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		5CB0839018AC1B2B00F36036 /* PasswordHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHandler.h; sourceTree = "<group>"; };
+		5CB0839118AC1B2B00F36036 /* PasswordHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHandler.m; sourceTree = "<group>"; };
 		EF5CAC301890774200E6F164 /* OPALApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPALApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5CAC331890774200E6F164 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF5CAC351890774200E6F164 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -305,12 +311,16 @@
 		EFBB056818924C0300A7D8A5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				5CB0838C18AC08F300F36036 /* SFHFKeychainUtils.h */,
+				5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */,
 				EF5CACB91890B6AD00E6F164 /* NotificationViewController.h */,
 				EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */,
 				EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */,
 				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
 				EFFE3BD81891DFE700E88371 /* TriageViewController.h */,
 				EFFE3BD91891DFE700E88371 /* TriageViewController.m */,
+				5CB0839018AC1B2B00F36036 /* PasswordHandler.h */,
+				5CB0839118AC1B2B00F36036 /* PasswordHandler.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -429,9 +439,11 @@
 				EF5CAC971890AF2700E6F164 /* FUIPopoverBackgroundView.m in Sources */,
 				EFFE3BDA1891DFE700E88371 /* TriageViewController.m in Sources */,
 				EF5CACA61890AF2700E6F164 /* UIToolbar+FlatUI.m in Sources */,
+				5CB0838F18AC08F300F36036 /* SFHFKeychainUtils.m in Sources */,
 				EF5CAC9C1890AF2700E6F164 /* UIColor+FlatUI.m in Sources */,
 				EF5CACA51890AF2700E6F164 /* UITableViewCell+FlatUI.m in Sources */,
 				EF5CAC951890AF2700E6F164 /* FUIButton.m in Sources */,
+				5CB0839218AC1B2B00F36036 /* PasswordHandler.m in Sources */,
 				EF5CACA41890AF2700E6F164 /* UITabBar+FlatUI.m in Sources */,
 				EF5CACBB1890B6AD00E6F164 /* NotificationViewController.m in Sources */,
 				EF5CAC941890AF2700E6F164 /* FUIAlertView.m in Sources */,
