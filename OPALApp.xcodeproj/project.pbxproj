@@ -134,6 +134,7 @@
 		EF5CACBA1890B6AD00E6F164 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		EF5CACBC1890B6B900E6F164 /* WayfinderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WayfinderViewController.h; sourceTree = "<group>"; };
 		EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WayfinderViewController.m; sourceTree = "<group>"; };
+		EFE7B74C18AD61100065A731 /* PasswordHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHandling.h; sourceTree = "<group>"; };
 		EFFE3BD81891DFE700E88371 /* TriageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriageViewController.h; sourceTree = "<group>"; };
 		EFFE3BD91891DFE700E88371 /* TriageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +320,7 @@
 				EF5CACBD1890B6B900E6F164 /* WayfinderViewController.m */,
 				EFFE3BD81891DFE700E88371 /* TriageViewController.h */,
 				EFFE3BD91891DFE700E88371 /* TriageViewController.m */,
+				EFE7B74C18AD61100065A731 /* PasswordHandling.h */,
 				5CB0839018AC1B2B00F36036 /* PasswordHandler.h */,
 				5CB0839118AC1B2B00F36036 /* PasswordHandler.m */,
 			);

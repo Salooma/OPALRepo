@@ -10,15 +10,11 @@
 
 @implementation PasswordHandler
 
+#pragma mark - PasswordHandling Protocol Methods
 - (BOOL)triageViewController:(TriageViewController *)triageViewController verifyPassword:(NSString *)password
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     return [password isEqualToString:@"1234"];
-}
-
-- (void)passcodeWasEnteredSuccessfully
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 - (void)maxNumberOfFailedAttemptsReached
@@ -26,9 +22,5 @@
     NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
-- (void)passcodeViewControllerWasDismissed
-{
-    NSLog(@"%s", __PRETTY_FUNCTION__);
-}
 
 @end

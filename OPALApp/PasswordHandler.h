@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TriageViewController.h"
+#import "PasswordHandling.h"
 
-@interface PasswordHandler : NSObject <PasswordHandler>
+@interface PasswordHandler : NSObject <PasswordHandling>
 
 
 @end
