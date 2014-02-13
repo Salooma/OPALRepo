@@ -22,6 +22,9 @@
 // A control to notify the controller if the password was entered succesfully
 @property (nonatomic, assign) BOOL isPasswordSuccessful;
 
+// Gesture recognizers to handle keyboard dismissal and arrival
+@property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
+
 @end
 
 static NSString *const kKeychainPasscode = @"demoPasscode";
@@ -284,6 +287,9 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 
 - (UIView *)mainView
 {
+    // Eliminate gesture recognizer
+    self.tapRecognizer = nil;
+    
     UIView *mainView = [[UIView alloc] init];
     mainView.frame = [UIScreen mainScreen].bounds;
     mainView.backgroundColor = kBackgroundColor;
@@ -412,15 +418,47 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     [self addConstraintsForView:(passwordView)];
     
+    // Assign the cancel button to the right bar button item in the navigation item
+    [self addCancelButton];
+    
+    // Add tap gesture recognizer
+    if (!self.tapRecognizer)
+        self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                     action:@selector(handleTap:)];
+
+    
+    // Add tag to animatingView so we know when it is tapped
+    [passwordView addGestureRecognizer:self.tapRecognizer];
+    
+    return passwordView;
+}
+
+- (void)handleTap:(UITapGestureRecognizer *)tapRecognizer
+{
+    if (tapRecognizer.state == UIGestureRecognizerStateEnded) {
+        if ([_passcodeTextField isFirstResponder]) {
+            [_passcodeTextField resignFirstResponder];
+            [self removeCancelButton];
+        } else {
+            [_passcodeTextField becomeFirstResponder];
+            [self addCancelButton];
+        }
+    }
+}
+
+#pragma mark - Bar Button Item Management
+- (void)addCancelButton
+{
     // Create Cancel UIBarButtonItem
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                                   target:self
                                                                                   action:@selector(dismissMe)];
-    
-    // Assign the cancel button to the right bar button item in the navigation item
-    self.navigationItem.rightBarButtonItem = cancelButton;
-    
-    return passwordView;
+    self.navigationItem.leftBarButtonItem = cancelButton;
+}
+
+- (void)removeCancelButton
+{
+    self.navigationItem.leftBarButtonItem = nil;
 }
 
 #pragma mark - UISegmenetedControl Target Action Method
@@ -460,7 +498,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 
 - (void)dismissMe {
     // Nullify the cancel button
-    self.navigationItem.rightBarButtonItem = nil;
+    [self removeCancelButton];
     
 	_isCurrentlyOnScreen = NO;
 	[self resetUI];
@@ -561,7 +599,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
         
         if (self.isPasswordSuccessful) {
             // Refresh mainView
-            self.navigationItem.rightBarButtonItem = nil;
+            [self removeCancelButton];
             self.view = self.currentView;
         }
         else
