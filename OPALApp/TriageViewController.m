@@ -272,6 +272,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 {
     id <Theme> themeSetter = [[ThemeFactory sharedThemeFactory] buildThemeForSettingsKey];
     [themeSetter themeNavigationBar:self.navigationController.navigationBar];
+    [themeSetter themeTabBar:self.tabBarController.tabBar];
 }
 
 #pragma mark - View Accessors

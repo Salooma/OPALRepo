@@ -9,6 +9,7 @@
 #import "BaseTheme.h"
 #import "UINavigationBar+FlatUI.h"
 #import "FUIButton.h"
+#import "UITabBar+FlatUI.h"
 
 @interface BaseTheme ()
 
@@ -145,7 +146,7 @@
 
 - (void)themeTabBar:(UITabBar *)tabBar
 {
-    tabBar.backgroundColor = self.primaryBackgroundColor;
+    [tabBar configureFlatTabBarWithColor:self.primaryBackgroundColor];
 }
 
 @end
