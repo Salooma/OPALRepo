@@ -13,9 +13,15 @@
 #import "PasswordHandler.h"
 
 @interface TriageViewController ()
-@property(nonatomic, strong) UIView *currentView;
-@property(nonatomic,strong) UISegmentedControl *segmentControl;
-@property(nonatomic,assign) BOOL isPasswordSuccessful;
+
+// The current view displayed on the screen
+@property (nonatomic, strong) UIView *currentView;
+
+// The segment control that handles views in the non-password view
+@property (nonatomic, strong) UISegmentedControl *segmentControl;
+
+// A control to notify the controller if the password was entered succesfully
+@property (nonatomic, assign) BOOL isPasswordSuccessful;
 
 @end
 
@@ -70,6 +76,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 
 @implementation TriageViewController
 {
+    // Our beautiful ivars
     UIView *_animatingView;
     UITextField *_firstDigitTextField;
     UITextField *_secondDigitTextField;
@@ -89,180 +96,21 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     BOOL _timerStartInSeconds;
 }
 
-- (UIView *) currentView
-{
-    if(self.isPasswordSuccessful)
-        return [self mainView];
-    else
-        return [self passwordView];
-}
-
-- (UIView *) mainView
-{
-    UIView *mainView = [[UIView alloc] init];
-    mainView.frame=[UIScreen mainScreen].bounds;
-
-    mainView.backgroundColor = kBackgroundColor;
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text=@"QUEUE VIEW";
-    label.frame = CGRectMake(mainView.center.x, mainView.center.y, 150, 50);
-    
-    self.segmentControl.frame=CGRectMake(mainView.center.x, mainView.center.y, 45, 45);
-    
-    [mainView addSubview:self.segmentControl];
-    [mainView addSubview:label];
-    
-    return mainView;
-    
-}
-
-- (UIView *) medicalView
-{
-    UIView *medicalView = [[UIView alloc] init];
-    medicalView.frame=[UIScreen mainScreen].bounds;
-    
-    medicalView.backgroundColor = kBackgroundColor;
-    
-    UILabel *label = [[UILabel alloc] init];
-    label.text=@"MEDICAL VIEW";
-    label.frame = CGRectMake(medicalView.center.x, medicalView.center.y, 150, 50);
-    
-    self.segmentControl.frame=CGRectMake(medicalView.center.x, medicalView.center.y, 45, 45);
-    
-    [medicalView addSubview:label];
-    
-    return medicalView;
-    
-}
-
-
-- (UIView *) passwordView
-{
-    UIView *passwordView = [[UIView alloc] init];
-    passwordView.frame=[UIScreen mainScreen].bounds;
-    
-    passwordView.backgroundColor = kBackgroundColor;
-    
-    _failedAttempts = 0;
-	_animatingView = [[UIView alloc] initWithFrame: self.view.frame];
-	[passwordView addSubview: _animatingView];
-	
-	_enterPasscodeLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-	_enterPasscodeLabel.backgroundColor = kEnterPasscodeLabelBackgroundColor;
-	_enterPasscodeLabel.textColor = kLabelTextColor;
-	_enterPasscodeLabel.font = kLabelFont;
-	_enterPasscodeLabel.textAlignment = NSTextAlignmentCenter;
-	[_animatingView addSubview: _enterPasscodeLabel];
-	
-	// It is also used to display the "Passcodes did not match" error message if the user fails to confirm the passcode.
-	_failedAttemptLabel = [[UILabel alloc] initWithFrame: CGRectZero];
-	_failedAttemptLabel.text = @"1 Passcode Failed Attempt";
-	_failedAttemptLabel.backgroundColor	= kFailedAttemptLabelBackgroundColor;
-	_failedAttemptLabel.hidden = YES;
-	_failedAttemptLabel.textColor = kFailedAttemptLabelTextColor;
-	_failedAttemptLabel.font = kLabelFont;
-	_failedAttemptLabel.textAlignment = NSTextAlignmentCenter;
-	[_animatingView addSubview: _failedAttemptLabel];
-	
-	_firstDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    _firstDigitTextField.backgroundColor = kPasscodeBackgroundColor;
-    _firstDigitTextField.textAlignment = NSTextAlignmentCenter;
-	_firstDigitTextField.text = kPasscodeCharacter;
-	_firstDigitTextField.textColor = kPasscodeTextColor;
-	_firstDigitTextField.font = kPasscodeFont;
-	_firstDigitTextField.secureTextEntry = NO;
-    [_firstDigitTextField setBorderStyle:UITextBorderStyleNone];
-	_firstDigitTextField.userInteractionEnabled = NO;
-    [_animatingView addSubview:_firstDigitTextField];
-	
-	_secondDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    _secondDigitTextField.backgroundColor = kPasscodeBackgroundColor;
-    _secondDigitTextField.textAlignment = NSTextAlignmentCenter;
-	_secondDigitTextField.text = kPasscodeCharacter;
-	_secondDigitTextField.textColor = kPasscodeTextColor;
-	_secondDigitTextField.font = kPasscodeFont;
-	_secondDigitTextField.secureTextEntry = NO;
-    [_secondDigitTextField setBorderStyle:UITextBorderStyleNone];
-	_secondDigitTextField.userInteractionEnabled = NO;
-    [_animatingView addSubview:_secondDigitTextField];
-	
-	_thirdDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    _thirdDigitTextField.backgroundColor = kPasscodeBackgroundColor;
-    _thirdDigitTextField.textAlignment = NSTextAlignmentCenter;
-	_thirdDigitTextField.text = kPasscodeCharacter;
-	_thirdDigitTextField.textColor = kPasscodeTextColor;
-	_thirdDigitTextField.font = kPasscodeFont;
-	_thirdDigitTextField.secureTextEntry = NO;
-    [_thirdDigitTextField setBorderStyle:UITextBorderStyleNone];
-	_thirdDigitTextField.userInteractionEnabled = NO;
-    [_animatingView addSubview:_thirdDigitTextField];
-	
-	_fourthDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
-    _fourthDigitTextField.backgroundColor = kPasscodeBackgroundColor;
-    _fourthDigitTextField.textAlignment = NSTextAlignmentCenter;
-	_fourthDigitTextField.text = kPasscodeCharacter;
-	_fourthDigitTextField.textColor = kPasscodeTextColor;
-	_fourthDigitTextField.font = kPasscodeFont;
-	_fourthDigitTextField.secureTextEntry = NO;
-    [_fourthDigitTextField setBorderStyle:UITextBorderStyleNone];
-	_fourthDigitTextField.userInteractionEnabled = NO;
-    [_animatingView addSubview:_fourthDigitTextField];
-	
-	_passcodeTextField = [[UITextField alloc] initWithFrame: CGRectZero];
-	_passcodeTextField.hidden = YES;
-	_passcodeTextField.delegate = self;
-	_passcodeTextField.keyboardType = UIKeyboardTypeNumberPad;
-	[_passcodeTextField becomeFirstResponder];
-    [_animatingView addSubview:_passcodeTextField];
-	
-	_enterPasscodeLabel.text = _isUserChangingPasscode ? NSLocalizedString(@"Enter your old passcode", @"") : NSLocalizedString(@"Enter your passcode", @"");
-	
-	_enterPasscodeLabel.translatesAutoresizingMaskIntoConstraints = NO;
-	_failedAttemptLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    _firstDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
-	_secondDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
-	_thirdDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
-	_fourthDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self addConstraintsForView:(passwordView)];
-    
-    // Create Cancel UIBarButtonItem
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
-                                                                                  target:self
-                                                                                  action:@selector(dismissMe)];
-    self.navigationItem.rightBarButtonItem = cancelButton;
-    
-    return passwordView;
-}
-
-
+#pragma mark - View Management
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // Create the password handler if not already defined
     if (!self.passwordHandler)
         self.passwordHandler = [[PasswordHandler alloc] init];
     
+    // Set up the segmented control with the method: switchView: passing itself as a parameter
     self.segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Queue", @"Medical"]];
-    [self.segmentControl addTarget:self action:@selector(switchView: ) forControlEvents:UIControlEventValueChanged];
+    [self.segmentControl addTarget:self
+                            action:@selector(switchView:)
+                  forControlEvents:UIControlEventValueChanged];
 }
-
-- (void)switchView: (UISegmentedControl *)segment
-{
-    NSLog(@"switching views");
-    //if index at 1, then don't change anything (from mainview), if index at 2 then switch to medicalView
-    if (segment.selectedSegmentIndex==0)
-    {
-        self.view=[self mainView];
-    } else
-    {
-        self.view=[self medicalView];
-    }
-    
-    
-}
-
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -396,6 +244,190 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	[view addConstraint:failedAttemptLabelHeight];
 }
 
+- (void)resetUI
+{
+	[self resetTextFields];
+	_failedAttemptLabel.backgroundColor	= kFailedAttemptLabelBackgroundColor;
+	_failedAttemptLabel.textColor = kFailedAttemptLabelTextColor;
+	_failedAttempts = 0;
+	_failedAttemptLabel.hidden = YES;
+	_passcodeTextField.text = @"";
+	if (_isUserConfirmingPasscode) {
+		if (_isUserEnablingPasscode) _enterPasscodeLabel.text = NSLocalizedString(@"Re-enter your passcode", @"");
+		else if (_isUserChangingPasscode) _enterPasscodeLabel.text = NSLocalizedString(@"Re-enter your new passcode", @"");
+	}
+	else if (_isUserBeingAskedForNewPasscode) {
+		if (_isUserEnablingPasscode || _isUserChangingPasscode) {
+			_enterPasscodeLabel.text = NSLocalizedString(@"Enter your new passcode", @"");
+		}
+	}
+	else _enterPasscodeLabel.text = NSLocalizedString(@"Enter your passcode", @"");
+}
+
+#pragma mark - View Accessors
+- (UIView *) currentView
+{
+    if(self.isPasswordSuccessful)
+        return [self mainView];
+    else
+        return [self passwordView];
+}
+
+- (UIView *) mainView
+{
+    UIView *mainView = [[UIView alloc] init];
+    mainView.frame=[UIScreen mainScreen].bounds;
+
+    mainView.backgroundColor = kBackgroundColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text=@"QUEUE VIEW";
+    label.frame = CGRectMake(mainView.center.x, mainView.center.y, 150, 50);
+    
+    self.segmentControl.frame=CGRectMake(mainView.center.x, mainView.center.y, 45, 45);
+    
+    [mainView addSubview:self.segmentControl];
+    [mainView addSubview:label];
+    
+    return mainView;
+    
+}
+
+- (UIView *) medicalView
+{
+    UIView *medicalView = [[UIView alloc] init];
+    medicalView.frame=[UIScreen mainScreen].bounds;
+    
+    medicalView.backgroundColor = kBackgroundColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text=@"MEDICAL VIEW";
+    label.frame = CGRectMake(medicalView.center.x, medicalView.center.y, 150, 50);
+    
+    self.segmentControl.frame=CGRectMake(medicalView.center.x, medicalView.center.y, 45, 45);
+    
+    [medicalView addSubview:label];
+    
+    return medicalView;
+    
+}
+
+- (UIView *) passwordView
+{
+    UIView *passwordView = [[UIView alloc] init];
+    passwordView.frame=[UIScreen mainScreen].bounds;
+    
+    passwordView.backgroundColor = kBackgroundColor;
+    
+    _failedAttempts = 0;
+	_animatingView = [[UIView alloc] initWithFrame: self.view.frame];
+	[passwordView addSubview: _animatingView];
+	
+	_enterPasscodeLabel = [[UILabel alloc] initWithFrame: CGRectZero];
+	_enterPasscodeLabel.backgroundColor = kEnterPasscodeLabelBackgroundColor;
+	_enterPasscodeLabel.textColor = kLabelTextColor;
+	_enterPasscodeLabel.font = kLabelFont;
+	_enterPasscodeLabel.textAlignment = NSTextAlignmentCenter;
+	[_animatingView addSubview: _enterPasscodeLabel];
+	
+	// It is also used to display the "Passcodes did not match" error message if the user fails to confirm the passcode.
+	_failedAttemptLabel = [[UILabel alloc] initWithFrame: CGRectZero];
+	_failedAttemptLabel.text = @"1 Passcode Failed Attempt";
+	_failedAttemptLabel.backgroundColor	= kFailedAttemptLabelBackgroundColor;
+	_failedAttemptLabel.hidden = YES;
+	_failedAttemptLabel.textColor = kFailedAttemptLabelTextColor;
+	_failedAttemptLabel.font = kLabelFont;
+	_failedAttemptLabel.textAlignment = NSTextAlignmentCenter;
+	[_animatingView addSubview: _failedAttemptLabel];
+	
+	_firstDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+    _firstDigitTextField.backgroundColor = kPasscodeBackgroundColor;
+    _firstDigitTextField.textAlignment = NSTextAlignmentCenter;
+	_firstDigitTextField.text = kPasscodeCharacter;
+	_firstDigitTextField.textColor = kPasscodeTextColor;
+	_firstDigitTextField.font = kPasscodeFont;
+	_firstDigitTextField.secureTextEntry = NO;
+    [_firstDigitTextField setBorderStyle:UITextBorderStyleNone];
+	_firstDigitTextField.userInteractionEnabled = NO;
+    [_animatingView addSubview:_firstDigitTextField];
+	
+	_secondDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+    _secondDigitTextField.backgroundColor = kPasscodeBackgroundColor;
+    _secondDigitTextField.textAlignment = NSTextAlignmentCenter;
+	_secondDigitTextField.text = kPasscodeCharacter;
+	_secondDigitTextField.textColor = kPasscodeTextColor;
+	_secondDigitTextField.font = kPasscodeFont;
+	_secondDigitTextField.secureTextEntry = NO;
+    [_secondDigitTextField setBorderStyle:UITextBorderStyleNone];
+	_secondDigitTextField.userInteractionEnabled = NO;
+    [_animatingView addSubview:_secondDigitTextField];
+	
+	_thirdDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+    _thirdDigitTextField.backgroundColor = kPasscodeBackgroundColor;
+    _thirdDigitTextField.textAlignment = NSTextAlignmentCenter;
+	_thirdDigitTextField.text = kPasscodeCharacter;
+	_thirdDigitTextField.textColor = kPasscodeTextColor;
+	_thirdDigitTextField.font = kPasscodeFont;
+	_thirdDigitTextField.secureTextEntry = NO;
+    [_thirdDigitTextField setBorderStyle:UITextBorderStyleNone];
+	_thirdDigitTextField.userInteractionEnabled = NO;
+    [_animatingView addSubview:_thirdDigitTextField];
+	
+	_fourthDigitTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+    _fourthDigitTextField.backgroundColor = kPasscodeBackgroundColor;
+    _fourthDigitTextField.textAlignment = NSTextAlignmentCenter;
+	_fourthDigitTextField.text = kPasscodeCharacter;
+	_fourthDigitTextField.textColor = kPasscodeTextColor;
+	_fourthDigitTextField.font = kPasscodeFont;
+	_fourthDigitTextField.secureTextEntry = NO;
+    [_fourthDigitTextField setBorderStyle:UITextBorderStyleNone];
+	_fourthDigitTextField.userInteractionEnabled = NO;
+    [_animatingView addSubview:_fourthDigitTextField];
+	
+	_passcodeTextField = [[UITextField alloc] initWithFrame: CGRectZero];
+	_passcodeTextField.hidden = YES;
+	_passcodeTextField.delegate = self;
+	_passcodeTextField.keyboardType = UIKeyboardTypeNumberPad;
+	[_passcodeTextField becomeFirstResponder];
+    [_animatingView addSubview:_passcodeTextField];
+	
+	_enterPasscodeLabel.text = _isUserChangingPasscode ? NSLocalizedString(@"Enter your old passcode", @"") : NSLocalizedString(@"Enter your passcode", @"");
+	
+	_enterPasscodeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+	_failedAttemptLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _firstDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
+	_secondDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
+	_thirdDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
+	_fourthDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self addConstraintsForView:(passwordView)];
+    
+    // Create Cancel UIBarButtonItem
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                  target:self
+                                                                                  action:@selector(dismissMe)];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+    
+    return passwordView;
+}
+
+#pragma mark - UISegmenetedControl Target Action Method
+- (void)switchView: (UISegmentedControl *)segment
+{
+    NSLog(@"switching views");
+    //if index at 1, then don't change anything (from mainview), if index at 2 then switch to medicalView
+    if (segment.selectedSegmentIndex==0)
+    {
+        self.view=[self mainView];
+    } else
+    {
+        self.view=[self medicalView];
+    }
+    
+    
+}
+
+#pragma mark - Password View End of Life
 - (void)cancelAndDismissMe {
 	_isCurrentlyOnScreen = NO;
 	[_passcodeTextField resignFirstResponder];
@@ -405,13 +437,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	_isUserEnablingPasscode = NO;
 	_isUserTurningPasscodeOff = NO;
 	[self resetUI];
-	
-	if ([self.passwordHandler respondsToSelector: @selector(passcodeViewControllerWasDismissed)])
-		[self.passwordHandler performSelector: @selector(passcodeViewControllerWasDismissed)];
-	// Or, if you prefer by notifications:
-    //	[[NSNotificationCenter defaultCenter] postNotificationName: @"dismissPasscodeViewController"
-    //														object: self
-    //													  userInfo: nil];
+
 	[self dismissViewControllerAnimated: YES completion: nil];
 }
 
@@ -462,7 +488,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 												  object: nil];
 }
 
-
+#pragma mark - Navigation Controller Segue-ing
 - (void)prepareNavigationControllerWithController:(UIViewController *)viewController {
 	UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController: self];
 	
@@ -474,7 +500,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 		navController.navigationBar.barTintColor        = self.navigationBarTintColor;
 	}
 	if (self.navigationTitleColor) {
-		navController.navigationBar.titleTextAttributes = @{UITextAttributeTextColor : self.navigationTitleColor};
+		navController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName : self.navigationTitleColor};
 	}
 	
 	[viewController presentViewController: navController animated: YES completion: nil];
@@ -483,6 +509,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 																						   action: @selector(cancelAndDismissMe)];
 }
 
+#pragma mark - UITextFieldDelegate Methods
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([string isEqualToString: @"\n"]) return NO;
 	
@@ -517,8 +544,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
         return YES;
 }
 
-
-
+#pragma mark - Text Field Helpers
 - (void)resetTextFields {
 	if (![_passcodeTextField isFirstResponder])
 		[_passcodeTextField becomeFirstResponder];
@@ -528,27 +554,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	_fourthDigitTextField.secureTextEntry = NO;
 }
 
-
-- (void)resetUI {
-	[self resetTextFields];
-	_failedAttemptLabel.backgroundColor	= kFailedAttemptLabelBackgroundColor;
-	_failedAttemptLabel.textColor = kFailedAttemptLabelTextColor;
-	_failedAttempts = 0;
-	_failedAttemptLabel.hidden = YES;
-	_passcodeTextField.text = @"";
-	if (_isUserConfirmingPasscode) {
-		if (_isUserEnablingPasscode) _enterPasscodeLabel.text = NSLocalizedString(@"Re-enter your passcode", @"");
-		else if (_isUserChangingPasscode) _enterPasscodeLabel.text = NSLocalizedString(@"Re-enter your new passcode", @"");
-	}
-	else if (_isUserBeingAskedForNewPasscode) {
-		if (_isUserEnablingPasscode || _isUserChangingPasscode) {
-			_enterPasscodeLabel.text = NSLocalizedString(@"Enter your new passcode", @"");
-		}
-	}
-	else _enterPasscodeLabel.text = NSLocalizedString(@"Enter your passcode", @"");
-}
-
-
+#pragma mark - Password Management
 - (void)denyAccess {
 	[self resetTextFields];
 	_passcodeTextField.text = @"";
