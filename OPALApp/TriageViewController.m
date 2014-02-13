@@ -14,6 +14,7 @@
 
 @interface TriageViewController ()
 @property(nonatomic, strong) UIView *currentView;
+@property(nonatomic,strong) UISegmentedControl *segmentControl;
 @property(nonatomic,assign) BOOL isPasswordSuccessful;
 
 @end
@@ -107,11 +108,34 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label.text=@"QUEUE VIEW";
     label.frame = CGRectMake(mainView.center.x, mainView.center.y, 150, 50);
     
+    self.segmentControl.frame=CGRectMake(mainView.center.x, mainView.center.y, 45, 45);
+    
+    [mainView addSubview:self.segmentControl];
     [mainView addSubview:label];
     
     return mainView;
     
 }
+
+- (UIView *) medicalView
+{
+    UIView *medicalView = [[UIView alloc] init];
+    medicalView.frame=[UIScreen mainScreen].bounds;
+    
+    medicalView.backgroundColor = kBackgroundColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text=@"MEDICAL VIEW";
+    label.frame = CGRectMake(medicalView.center.x, medicalView.center.y, 150, 50);
+    
+    self.segmentControl.frame=CGRectMake(medicalView.center.x, medicalView.center.y, 45, 45);
+    
+    [medicalView addSubview:label];
+    
+    return medicalView;
+    
+}
+
 
 - (UIView *) passwordView
 {
@@ -219,6 +243,24 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     if (!self.passwordHandler)
         self.passwordHandler = [[PasswordHandler alloc] init];
+    
+    self.segmentControl = [[UISegmentedControl alloc] initWithItems:@[@"Queue", @"Medical"]];
+    [self.segmentControl addTarget:self action:@selector(switchView: ) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)switchView: (UISegmentedControl *)segment
+{
+    NSLog(@"switching views");
+    //if index at 1, then don't change anything (from mainview), if index at 2 then switch to medicalView
+    if (segment.selectedSegmentIndex==0)
+    {
+        self.view=[self mainView];
+    } else
+    {
+        self.view=[self medicalView];
+    }
+    
+    
 }
 
 
@@ -464,6 +506,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
         
         if(self.isPasswordSuccessful){
             //refresh mainview
+            self.navigationItem.rightBarButtonItem = nil;
             self.view=self.currentView;
         }
         else
