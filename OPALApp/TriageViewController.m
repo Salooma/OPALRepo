@@ -13,7 +13,8 @@
 #import "PasswordHandler.h"
 
 @interface TriageViewController ()
-//@property(nonatomic, strong) UIView *currentView;
+@property(nonatomic, strong) UIView *currentView;
+@property(nonatomic,assign) BOOL isPasswordSuccessful;
 
 @end
 
@@ -87,24 +88,41 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     BOOL _timerStartInSeconds;
 }
 
-- (void)viewDidLoad
+- (UIView *) currentView
 {
-    [super viewDidLoad];
-    
-    if (!self.passwordHandler)
-        self.passwordHandler = [[PasswordHandler alloc] init];
+    if(self.isPasswordSuccessful)
+        return [self mainView];
+    else
+        return [self passwordView];
 }
 
-
-- (void)viewWillAppear:(BOOL)animated
+- (UIView *) mainView
 {
-    [super viewWillAppear:animated];
+    UIView *mainView = [[UIView alloc] init];
+    mainView.frame=[UIScreen mainScreen].bounds;
+
+    mainView.backgroundColor = kBackgroundColor;
     
-    self.view.backgroundColor = kBackgroundColor;
+    UILabel *label = [[UILabel alloc] init];
+    label.text=@"QUEUE VIEW";
+    label.frame = CGRectMake(mainView.center.x, mainView.center.y, 150, 50);
     
-	_failedAttempts = 0;
+    [mainView addSubview:label];
+    
+    return mainView;
+    
+}
+
+- (UIView *) passwordView
+{
+    UIView *passwordView = [[UIView alloc] init];
+    passwordView.frame=[UIScreen mainScreen].bounds;
+    
+    passwordView.backgroundColor = kBackgroundColor;
+    
+    _failedAttempts = 0;
 	_animatingView = [[UIView alloc] initWithFrame: self.view.frame];
-	[self.view addSubview: _animatingView];
+	[passwordView addSubview: _animatingView];
 	
 	_enterPasscodeLabel = [[UILabel alloc] initWithFrame: CGRectZero];
 	_enterPasscodeLabel.backgroundColor = kEnterPasscodeLabelBackgroundColor;
@@ -183,11 +201,35 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	_thirdDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
 	_fourthDigitTextField.translatesAutoresizingMaskIntoConstraints = NO;
     
-    [self addConstraints];
+    [self addConstraintsForView:(passwordView)];
+    
+    // Create Cancel UIBarButtonItem
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
+                                                                                  target:self
+                                                                                  action:@selector(dismissMe)];
+    self.navigationItem.rightBarButtonItem = cancelButton;
+    
+    return passwordView;
+}
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    if (!self.passwordHandler)
+        self.passwordHandler = [[PasswordHandler alloc] init];
+}
+
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.view=self.currentView;
 	
 }
 
-- (void) addConstraints
+- (void) addConstraintsForView : (UIView *)view
 {
     // MARK: Please read
 	// The controller works properly on all devices and orientations, but looks odd on iPhone's landscape.
@@ -195,49 +237,49 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	// That's why only portrait is selected for iPhone's supported orientations.
 	// Modify this to fit your needs.
 	
-	CGFloat yOffsetFromCenter = -self.view.frame.size.height * 0.24;
+	CGFloat yOffsetFromCenter = -view.frame.size.height * 0.24;
 	NSLayoutConstraint *enterPasscodeConstraintCenterX = [NSLayoutConstraint constraintWithItem: _enterPasscodeLabel
 																					  attribute: NSLayoutAttributeCenterX
 																					  relatedBy: NSLayoutRelationEqual
-																						 toItem: self.view
+																						 toItem: view
 																					  attribute: NSLayoutAttributeCenterX
 																					 multiplier: 1.0f
 																					   constant: 0.0f];
 	NSLayoutConstraint *enterPasscodeConstraintCenterY = [NSLayoutConstraint constraintWithItem: _enterPasscodeLabel
 																					  attribute: NSLayoutAttributeCenterY
 																					  relatedBy: NSLayoutRelationEqual
-																						 toItem: self.view
+																						 toItem: view
 																					  attribute: NSLayoutAttributeCenterY
 																					 multiplier: 1.0f
 																					   constant: yOffsetFromCenter];
-    [self.view addConstraint: enterPasscodeConstraintCenterX];
-    [self.view addConstraint: enterPasscodeConstraintCenterY];
+    [view addConstraint: enterPasscodeConstraintCenterX];
+    [view addConstraint: enterPasscodeConstraintCenterY];
 	
 	NSLayoutConstraint *firstDigitX = [NSLayoutConstraint constraintWithItem: _firstDigitTextField
 																   attribute: NSLayoutAttributeLeft
 																   relatedBy: NSLayoutRelationEqual
-																	  toItem: self.view
+																	  toItem: view
 																   attribute: NSLayoutAttributeCenterX
 																  multiplier: 1.0f
 																	constant: - kHorizontalGap * 1.5f - 2.0f];
 	NSLayoutConstraint *secondDigitX = [NSLayoutConstraint constraintWithItem: _secondDigitTextField
 																	attribute: NSLayoutAttributeLeft
 																	relatedBy: NSLayoutRelationEqual
-																	   toItem: self.view
+																	   toItem: view
 																	attribute: NSLayoutAttributeCenterX
 																   multiplier: 1.0f
 																	 constant: - kHorizontalGap * 2/3 - 2.0f];
 	NSLayoutConstraint *thirdDigitX = [NSLayoutConstraint constraintWithItem: _thirdDigitTextField
 																   attribute: NSLayoutAttributeLeft
 																   relatedBy: NSLayoutRelationEqual
-																	  toItem: self.view
+																	  toItem: view
 																   attribute: NSLayoutAttributeCenterX
 																  multiplier: 1.0f
 																	constant: kHorizontalGap * 1/6 - 2.0f];
 	NSLayoutConstraint *fourthDigitX = [NSLayoutConstraint constraintWithItem: _fourthDigitTextField
 																	attribute: NSLayoutAttributeLeft
 																	relatedBy: NSLayoutRelationEqual
-																	   toItem: self.view
+																	   toItem: view
 																	attribute: NSLayoutAttributeCenterX
 																   multiplier: 1.0f
 																	 constant: kHorizontalGap - 2.0f];
@@ -269,19 +311,19 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 																	attribute: NSLayoutAttributeBottom
 																   multiplier: 1.0f
 																	 constant: kVerticalGap];
-	[self.view addConstraint:firstDigitX];
-	[self.view addConstraint:secondDigitX];
-	[self.view addConstraint:thirdDigitX];
-	[self.view addConstraint:fourthDigitX];
-	[self.view addConstraint:firstDigitY];
-	[self.view addConstraint:secondDigitY];
-	[self.view addConstraint:thirdDigitY];
-	[self.view addConstraint:fourthDigitY];
+	[view addConstraint:firstDigitX];
+	[view addConstraint:secondDigitX];
+	[view addConstraint:thirdDigitX];
+	[view addConstraint:fourthDigitX];
+	[view addConstraint:firstDigitY];
+	[view addConstraint:secondDigitY];
+	[view addConstraint:thirdDigitY];
+	[view addConstraint:fourthDigitY];
 	
     NSLayoutConstraint *failedAttemptLabelCenterX = [NSLayoutConstraint constraintWithItem: _failedAttemptLabel
 																				 attribute: NSLayoutAttributeCenterX
 																				 relatedBy: NSLayoutRelationEqual
-																					toItem: self.view
+																					toItem: view
 																				 attribute: NSLayoutAttributeCenterX
 																				multiplier: 1.0f
 																				  constant: 0.0f];
@@ -306,10 +348,10 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 																				attribute: NSLayoutAttributeNotAnAttribute
 																			   multiplier: 1.0f
 																				 constant: kFailedAttemptLabelHeight + 6.0f];
-	[self.view addConstraint:failedAttemptLabelCenterX];
-	[self.view addConstraint:failedAttemptLabelCenterY];
-	[self.view addConstraint:failedAttemptLabelWidth];
-	[self.view addConstraint:failedAttemptLabelHeight];
+	[view addConstraint:failedAttemptLabelCenterX];
+	[view addConstraint:failedAttemptLabelCenterY];
+	[view addConstraint:failedAttemptLabelWidth];
+	[view addConstraint:failedAttemptLabelHeight];
 }
 
 - (void)cancelAndDismissMe {
@@ -333,6 +375,9 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 
 
 - (void)dismissMe {
+    // Nullify the cancel button
+    self.navigationItem.rightBarButtonItem = nil;
+    
 	_isCurrentlyOnScreen = NO;
 	[self resetUI];
 	[_passcodeTextField resignFirstResponder];
@@ -414,12 +459,12 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 	
 	if (typedString.length == 4)
     {
-		
-        BOOL passwordSuccess=[self.passwordHandler triageViewController:self verifyPassword:typedString];
+		self.isPasswordSuccessful=[self.passwordHandler triageViewController:self verifyPassword:typedString];
         
-        if(passwordSuccess){
-            NSLog(@"Success");
-            [self dismissMe];
+        
+        if(self.isPasswordSuccessful){
+            //refresh mainview
+            self.view=self.currentView;
         }
         else
             [self denyAccess];
