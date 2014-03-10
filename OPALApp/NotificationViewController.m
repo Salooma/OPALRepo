@@ -10,6 +10,7 @@
 #import "BaseTheme.h"
 #import "ThemeFactory.h"
 
+
 @interface NotificationViewController ()
 
 @end
@@ -35,5 +36,6 @@
     [themeSetter themeNavigationBar:self.navigationController.navigationBar];
     [themeSetter themeTabBar:self.tabBarController.tabBar];
 }
+
 
 @end

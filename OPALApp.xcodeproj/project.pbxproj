@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		5CB0838F18AC08F300F36036 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */; };
 		5CB0839218AC1B2B00F36036 /* PasswordHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0839118AC1B2B00F36036 /* PasswordHandler.m */; };
+		5CE3F12918CD689B00DE829C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3F12818CD689B00DE829C /* QuartzCore.framework */; };
+		5CE3FB0318CE5E1500DE829C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0218CE5E1500DE829C /* Mapbox.framework */; };
+		5CE3FB0518CE602500DE829C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0418CE602500DE829C /* CoreLocation.framework */; };
+		5CE3FB0918CE642C00DE829C /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3FB0818CE642C00DE829C /* Mapbox.bundle */; };
+		5CE3FB0B18CE664C00DE829C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */; };
+		5CE3FB0D18CE666300DE829C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0C18CE666300DE829C /* libz.dylib */; };
 		EF5CAC341890774200E6F164 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC331890774200E6F164 /* Foundation.framework */; };
 		EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC351890774200E6F164 /* CoreGraphics.framework */; };
 		EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF5CAC371890774200E6F164 /* UIKit.framework */; };
@@ -65,6 +71,12 @@
 		5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		5CB0839018AC1B2B00F36036 /* PasswordHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHandler.h; sourceTree = "<group>"; };
 		5CB0839118AC1B2B00F36036 /* PasswordHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHandler.m; sourceTree = "<group>"; };
+		5CE3F12818CD689B00DE829C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5CE3FB0218CE5E1500DE829C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = ../../../Desktop/Mapbox.framework; sourceTree = "<group>"; };
+		5CE3FB0418CE602500DE829C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5CE3FB0818CE642C00DE829C /* Mapbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mapbox.bundle; sourceTree = "<group>"; };
+		5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5CE3FB0C18CE666300DE829C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		EF5CAC301890774200E6F164 /* OPALApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OPALApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF5CAC331890774200E6F164 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF5CAC351890774200E6F164 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,6 +156,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CE3FB0D18CE666300DE829C /* libz.dylib in Frameworks */,
+				5CE3FB0B18CE664C00DE829C /* libsqlite3.dylib in Frameworks */,
+				5CE3FB0518CE602500DE829C /* CoreLocation.framework in Frameworks */,
+				5CE3FB0318CE5E1500DE829C /* Mapbox.framework in Frameworks */,
+				5CE3F12918CD689B00DE829C /* QuartzCore.framework in Frameworks */,
 				EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */,
 				EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */,
 				EF5CAC341890774200E6F164 /* Foundation.framework in Frameworks */,
@@ -166,6 +183,7 @@
 		EF5CAC271890774200E6F164 = {
 			isa = PBXGroup;
 			children = (
+				5CE3FB0818CE642C00DE829C /* Mapbox.bundle */,
 				EF5CAC391890774200E6F164 /* OPALApp */,
 				EF5CAC581890774300E6F164 /* OPALAppTests */,
 				EF5CAC321890774200E6F164 /* Frameworks */,
@@ -186,6 +204,11 @@
 		EF5CAC321890774200E6F164 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5CE3FB0C18CE666300DE829C /* libz.dylib */,
+				5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */,
+				5CE3FB0418CE602500DE829C /* CoreLocation.framework */,
+				5CE3FB0218CE5E1500DE829C /* Mapbox.framework */,
+				5CE3F12818CD689B00DE829C /* QuartzCore.framework */,
 				EF5CAC331890774200E6F164 /* Foundation.framework */,
 				EF5CAC351890774200E6F164 /* CoreGraphics.framework */,
 				EF5CAC371890774200E6F164 /* UIKit.framework */,
@@ -374,6 +397,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Alexander Figueroa";
 				TargetAttributes = {
+					EF5CAC2F1890774200E6F164 = {
+						DevelopmentTeam = UMXY8HL442;
+					};
 					EF5CAC501890774200E6F164 = {
 						TestTargetID = EF5CAC2F1890774200E6F164;
 					};
@@ -405,6 +431,7 @@
 			files = (
 				EF5CACB41890B07A00E6F164 /* Defaults.plist in Resources */,
 				EF5CAC4C1890774200E6F164 /* Images.xcassets in Resources */,
+				5CE3FB0918CE642C00DE829C /* Mapbox.bundle in Resources */,
 				EF5CAC3E1890774200E6F164 /* InfoPlist.strings in Resources */,
 				EF5CAC471890774200E6F164 /* Main.storyboard in Resources */,
 			);
@@ -580,10 +607,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/salmahindy/Documents/Developer/OPAL,
+					/Users/salmahindy/Desktop,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
 				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/Proj4",
+					"/Users/salmahindy/Documents/Developer/OPAL/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/Documents/Developer/OPAL/MapBox-iOS-SDK/Proj4",
+					"/Users/salmahindy/Desktop/JSON\\ Framework\\ 2.framework/Versions/A",
+					"/Users/salmahindy/Documents/Developer/OPAL/Twitter+OAuth/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/Documents/Developer/OPAL/Twitter-OAuth-iPhone-master/Twitter+OAuth/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/Documents/Developer/OPAL/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/mapbox-ios-example/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/mapbox-ios-example/MapBox-iOS-SDK/Proj4",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -593,10 +642,32 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/salmahindy/Documents/Developer/OPAL,
+					/Users/salmahindy/Desktop,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
 				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/Proj4",
+					"/Users/salmahindy/Documents/Developer/OPAL/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/Documents/Developer/OPAL/MapBox-iOS-SDK/Proj4",
+					"/Users/salmahindy/Desktop/JSON\\ Framework\\ 2.framework/Versions/A",
+					"/Users/salmahindy/Documents/Developer/OPAL/Twitter+OAuth/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/Documents/Developer/OPAL/Twitter-OAuth-iPhone-master/Twitter+OAuth/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/Documents/Developer/OPAL/Libraries\\ &\\ Headers",
+					"/Users/salmahindy/mapbox-ios-example/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
+					"/Users/salmahindy/mapbox-ios-example/MapBox-iOS-SDK/Proj4",
+				);
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
