@@ -2,9 +2,7 @@
 //  PasswordHandling.h
 //  OPALApp
 //
-//  Created by Alexander Figueroa on 2/13/2014.
-//  Copyright (c) 2014 Alexander Figueroa. All rights reserved.
-//
+
 
 #import <Foundation/Foundation.h>
 @class TriageViewController;

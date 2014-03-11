@@ -2,9 +2,7 @@
 //  TriageViewController.m
 //  OPALApp
 //
-//  Created by Alexander Figueroa on 1/23/2014.
-//  Copyright (c) 2014 Alexander Figueroa. All rights reserved.
-//
+
 
 #import "TriageViewController.h"
 #import "ThemeFactory.h"
@@ -294,15 +292,49 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     mainView.frame = [UIScreen mainScreen].bounds;
     mainView.backgroundColor = kBackgroundColor;
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"QUEUE VIEW";
-    label.frame = CGRectMake(mainView.center.x, mainView.center.y, 150.0f, 50.0f);
+//    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 1)];
+//    lineView.backgroundColor = [UIColor blackColor];
     
-    self.segmentControl.frame = CGRectMake(mainView.center.x, mainView.center.y, 45.0f, 45.0f);
+    
+    self.segmentControl.frame = CGRectMake(mainView.center.x-150.0f, mainView.center.y-215.0f, 300.0f, 30.0f);
+    
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.text = @"You are currently:";
+    label1.frame = CGRectMake(mainView.center.x-75.0f, mainView.center.y-190.0f, 150.0f, 50.0f);
+   
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.text = @"in line.";
+    label2.frame = CGRectMake(mainView.center.x-35.0f, mainView.center.y+10.0f, 150.0f, 50.0f);
+    
+    UILabel *label3 = [[UILabel alloc] init];
+    label3.text = @"Estimated Wait Time";
+    label3.frame = CGRectMake(mainView.center.x-95.0f, mainView.center.y+70.0f, 200.0f, 50.0f);
+    //label3.font =[label3.font fontWithSize:20];
+    label3.textColor = [UIColor redColor];
+    label3.font = [UIFont boldSystemFontOfSize:20.0f];
+    
+    UILabel *label4 = [[UILabel alloc] init];
+    label4.text = @"30:58";
+    label4.frame = CGRectMake(mainView.center.x-50.0f, mainView.center.y+105.0f, 100.0f, 50.0f);
+    label4.font =[label4.font fontWithSize:35];
+    label4.textColor = [UIColor redColor];
+    
+//    [[UIColor blackColor] setFill];
+//    UIRectFill((CGRect){0,200,rect.size.width,1});
+    
+    UIView *overlayView = [[UIView alloc] initWithFrame:self.view.frame];
+    overlayView.backgroundColor = [UIColor blackColor];
+    overlayView.alpha = 0.4;
+    [self.view addSubview:overlayView];
+//    [overlayView release];
     
     // Add the subviews
-    [mainView addSubview:label];
     [mainView addSubview:self.segmentControl];
+    [mainView addSubview:label1];
+    [mainView addSubview:label2];
+    [mainView addSubview:label3];
+    [mainView addSubview:label4];
+//    [self.view addSubview:lineView];
     
     return mainView;
     
@@ -314,14 +346,14 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     medicalView.frame = [UIScreen mainScreen].bounds;
     medicalView.backgroundColor = kBackgroundColor;
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = @"MEDICAL VIEW";
-    label.frame = CGRectMake(medicalView.center.x, medicalView.center.y, 150.0f, 50.0f);
+    self.segmentControl.frame = CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-215.0f, 300.0f, 30.0f);
     
-    self.segmentControl.frame = CGRectMake(medicalView.center.x, medicalView.center.y, 45.0f, 45.0f);
+    UILabel *label1 = [[UILabel alloc] init];
+    label1.text = @"Describe how you are feeling:";
+    label1.frame = CGRectMake(medicalView.center.x-115.0f, medicalView.center.y-190.0f, 230.0f, 50.0f);
     
     // Add subviews
-    [medicalView addSubview:label];
+    [medicalView addSubview:label1];
     [medicalView addSubview:self.segmentControl];
     
     return medicalView;
@@ -432,6 +464,23 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     return passwordView;
 }
+
+//- (void)drawRect:(CGRect)rect {
+//    [super drawRect:rect];
+//    
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetStrokeColorWithColor(context, [UIColor redColor].CGColor);
+//    
+//    // Draw them with a 2.0 stroke width so they are a bit more visible.
+//    CGContextSetLineWidth(context, 2.0);
+//    
+//    CGContextMoveToPoint(context, 0,0); //start at this point
+//    
+//    CGContextAddLineToPoint(context, 20, 20); //draw to this point
+//    
+//    // and now draw the Path!
+//    CGContextStrokePath(context);
+//}
 
 - (void)handleTap:(UITapGestureRecognizer *)tapRecognizer
 {
