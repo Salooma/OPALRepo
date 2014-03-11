@@ -324,6 +324,12 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label4.font =[label4.font fontWithSize:35];
     label4.textColor = [UIColor redColor];
     
+    UILabel *label5 = [[UILabel alloc] init];
+    label5.text = @"30:58";
+    label5.frame = CGRectMake(mainView.center.x-50.0f, mainView.center.y+105.0f, 100.0f, 50.0f);
+    label5.font =[label4.font fontWithSize:35];
+    label5.textColor = [UIColor redColor];
+    
 //    [[UIColor blackColor] setFill];
 //    UIRectFill((CGRect){0,200,rect.size.width,1});
   
