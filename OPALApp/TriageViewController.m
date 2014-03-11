@@ -8,6 +8,7 @@
 #import "ThemeFactory.h"
 #import "SFHFKeychainUtils.h"
 #import "PasswordHandler.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TriageViewController ()
 
@@ -362,9 +363,46 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label1.text = @"Describe how you are feeling:";
     label1.frame = CGRectMake(medicalView.center.x-115.0f, medicalView.center.y-190.0f, 230.0f, 50.0f);
     
+    UITextField *text1 = [[UITextField alloc] init];
+    text1.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 100.0f);
+    text1.borderStyle=UITextBorderStyleRoundedRect;
+    text1.font = [UIFont systemFontOfSize:15];
+    text1.placeholder=@"Discuss symptoms or general concerns.";
+    
+    UIButton *submit = [UIButton buttonWithType:UIButtonTypeCustom];
+    submit.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+170.0f, 200.0f, 40.0f);
+    [submit setTitle:@"Submit" forState:UIControlStateNormal];
+    submit.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
+    submit.titleLabel.textColor= [UIColor redColor];
+    [[submit layer] setBorderWidth:2.0f];
+    [[submit layer] setBorderColor:[UIColor redColor].CGColor];
+    //[submit addTarget:self action:@selector(callDeny) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+//    text1.returnKeyType = UIReturnKeyDone;
+//    text1.clearButtonMode = UITextFieldViewModeWhileEditing;
+//    text1.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    
     // Add subviews
-    [medicalView addSubview:label1];
     [medicalView addSubview:self.segmentControl];
+    [medicalView addSubview:label1];
+    [medicalView addSubview:text1];
+    [medicalView addSubview:submit];
+    
+    
+    // Assign the cancel button to the right bar button item in the navigation item
+    //[self addCancelButton];
+    
+    // Add tap gesture recognizer
+//    if (!self.tapRecognizer)
+//        self.tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
+//                                                                     action:@selector(handleTap:)];
+//    
+//    
+//    // Add tag to animatingView so we know when it is tapped
+//    [medicalView addGestureRecognizer:self.tapRecognizer];
+    
+
     
     return medicalView;
     
