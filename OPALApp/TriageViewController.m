@@ -94,7 +94,11 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     BOOL _beingDisplayedAsLockScreen;
     NSString *_tempPasscode;
     BOOL _timerStartInSeconds;
+    int hours, minutes, seconds;
+    int secondsLeft;
 }
+
+@synthesize myCounterLabel;
 
 #pragma mark - View Management
 - (void)viewDidLoad
@@ -294,7 +298,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
 //    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 1)];
 //    lineView.backgroundColor = [UIColor blackColor];
-    
+//    [mainView addSubview:lineView];
     
     self.segmentControl.frame = CGRectMake(mainView.center.x-150.0f, mainView.center.y-215.0f, 300.0f, 30.0f);
     
@@ -321,12 +325,19 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
 //    [[UIColor blackColor] setFill];
 //    UIRectFill((CGRect){0,200,rect.size.width,1});
+  
     
-    UIView *overlayView = [[UIView alloc] initWithFrame:self.view.frame];
-    overlayView.backgroundColor = [UIColor blackColor];
-    overlayView.alpha = 0.4;
-    [self.view addSubview:overlayView];
+//    UIView *overlayView = [[UIView alloc] initWithFrame:self.view.frame];
+//    overlayView.backgroundColor = [UIColor blackColor];
+//    overlayView.alpha = 0.4;
+//    [mainView addSubview:overlayView];
 //    [overlayView release];
+    
+    secondsLeft=16925;
+    [self countdownTimer];
+    
+//    NSTimeInterval t = 10000;
+//    printf( "%02d:%02d:%02d\n", (int)t/(60*60), ((int)t/60)%60, ((int)t)%60 );
     
     // Add the subviews
     [mainView addSubview:self.segmentControl];
@@ -334,7 +345,6 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     [mainView addSubview:label2];
     [mainView addSubview:label3];
     [mainView addSubview:label4];
-//    [self.view addSubview:lineView];
     
     return mainView;
     
@@ -463,6 +473,43 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     [passwordView addGestureRecognizer:self.tapRecognizer];
     
     return passwordView;
+}
+
+- (void)updateCounter:(NSTimer *)theTimer {
+    if(secondsLeft > 0 ){
+        secondsLeft -- ;
+        hours = secondsLeft / 3600;
+        minutes = (secondsLeft % 3600) / 60;
+        seconds = (secondsLeft %3600) % 60;
+        myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+    }
+    else{
+        secondsLeft = 16925;
+    }
+}
+
+-(void)countdownTimer{
+    
+    secondsLeft = hours = minutes = seconds = 0;
+    if([timer isValid])
+    {
+        //NSString *result = nil;
+        [timer release];
+        //[self.view addSubview:timer];
+//        result = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+        
+    }
+        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+        [pool release];
+    
+    
+//    else
+//    {
+//     result = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+//    }
+    
+
 }
 
 //- (void)drawRect:(CGRect)rect {

@@ -53,7 +53,7 @@
 		EFE7B78118AD67F00065A731 /* UITabBar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7B76D18AD67F00065A731 /* UITabBar+FlatUI.m */; };
 		EFE7B78218AD67F00065A731 /* UITableViewCell+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7B76F18AD67F00065A731 /* UITableViewCell+FlatUI.m */; };
 		EFE7B78318AD67F00065A731 /* UIToolbar+FlatUI.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE7B77118AD67F00065A731 /* UIToolbar+FlatUI.m */; };
-		EFFE3BDA1891DFE700E88371 /* TriageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE3BD91891DFE700E88371 /* TriageViewController.m */; };
+		EFFE3BDA1891DFE700E88371 /* TriageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFE3BD91891DFE700E88371 /* TriageViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
