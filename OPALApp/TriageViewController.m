@@ -98,8 +98,10 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     int hours, minutes, seconds;
     int secondsLeft;
 }
-
-@synthesize myCounterLabel;
+//
+//@synthesize myCounterLabel;
+//@synthesize SalmaLabel;
+//@synthesize textB;
 
 #pragma mark - View Management
 - (void)viewDidLoad
@@ -305,11 +307,11 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     UILabel *label1 = [[UILabel alloc] init];
     label1.text = @"You are currently:";
-    label1.frame = CGRectMake(mainView.center.x-75.0f, mainView.center.y-190.0f, 150.0f, 50.0f);
+    label1.frame = CGRectMake(mainView.center.x-75.0f, mainView.center.y-180.0f, 150.0f, 50.0f);
    
     UILabel *label2 = [[UILabel alloc] init];
     label2.text = @"in line.";
-    label2.frame = CGRectMake(mainView.center.x-35.0f, mainView.center.y+10.0f, 150.0f, 50.0f);
+    label2.frame = CGRectMake(mainView.center.x-35.0f, mainView.center.y-30.0f, 150.0f, 50.0f);
     
     UILabel *label3 = [[UILabel alloc] init];
     label3.text = @"Estimated Wait Time";
@@ -325,10 +327,10 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label4.textColor = [UIColor redColor];
     
     UILabel *label5 = [[UILabel alloc] init];
-    label5.text = @"30:58";
-    label5.frame = CGRectMake(mainView.center.x-50.0f, mainView.center.y+105.0f, 100.0f, 50.0f);
-    label5.font =[label4.font fontWithSize:35];
-    label5.textColor = [UIColor redColor];
+    label5.text = @"3rd";
+    label5.frame = CGRectMake(mainView.center.x-80.0f, mainView.center.y-130.0f, 190.0f, 90.0f);
+    label5.font =[label4.font fontWithSize:105];
+    label5.textColor = [UIColor darkGrayColor];
     
 //    [[UIColor blackColor] setFill];
 //    UIRectFill((CGRect){0,200,rect.size.width,1});
@@ -340,8 +342,8 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 //    [mainView addSubview:overlayView];
 //    [overlayView release];
     
-    secondsLeft=16925;
-    [self countdownTimer];
+//    secondsLeft=16925;
+//    [self countdownTimer];
     
 //    NSTimeInterval t = 10000;
 //    printf( "%02d:%02d:%02d\n", (int)t/(60*60), ((int)t/60)%60, ((int)t)%60 );
@@ -352,6 +354,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     [mainView addSubview:label2];
     [mainView addSubview:label3];
     [mainView addSubview:label4];
+    [mainView addSubview:label5];
     
     return mainView;
     
@@ -369,19 +372,20 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label1.text = @"Describe how you are feeling:";
     label1.frame = CGRectMake(medicalView.center.x-115.0f, medicalView.center.y-190.0f, 230.0f, 50.0f);
     
-    UITextField *text1 = [[UITextField alloc] init];
-    text1.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 100.0f);
-    text1.borderStyle=UITextBorderStyleRoundedRect;
-    text1.font = [UIFont systemFontOfSize:15];
-    text1.placeholder=@"Discuss symptoms or general concerns.";
+    UITextField *textBox = [[UITextField alloc] init];
+    textBox.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 100.0f);
+    textBox.borderStyle=UITextBorderStyleRoundedRect;
+    textBox.font = [UIFont systemFontOfSize:15];
+    textBox.placeholder=@"Discuss symptoms or general concerns.";
     
-    UIButton *submit = [UIButton buttonWithType:UIButtonTypeCustom];
-    submit.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+170.0f, 200.0f, 40.0f);
-    [submit setTitle:@"Submit" forState:UIControlStateNormal];
-    submit.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
-    submit.titleLabel.textColor= [UIColor redColor];
-    [[submit layer] setBorderWidth:2.0f];
-    [[submit layer] setBorderColor:[UIColor redColor].CGColor];
+    UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    submitButton.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+170.0f, 200.0f, 40.0f);
+    [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
+    submitButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
+    submitButton.titleLabel.textColor= [UIColor redColor];
+    [[submitButton layer] setBorderWidth:2.0f];
+    [[submitButton layer] setBorderColor:[UIColor redColor].CGColor];
+    [submitButton addTarget:self action:@selector(Submit_OnClick:)    forControlEvents:UIControlEventTouchUpInside];
     //[submit addTarget:self action:@selector(callDeny) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -392,8 +396,8 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     // Add subviews
     [medicalView addSubview:self.segmentControl];
     [medicalView addSubview:label1];
-    [medicalView addSubview:text1];
-    [medicalView addSubview:submit];
+    [medicalView addSubview:textBox];
+    [medicalView addSubview:submitButton];
     
     
     // Assign the cancel button to the right bar button item in the navigation item
@@ -519,42 +523,91 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     return passwordView;
 }
 
-- (void)updateCounter:(NSTimer *)theTimer {
-    if(secondsLeft > 0 ){
-        secondsLeft -- ;
-        hours = secondsLeft / 3600;
-        minutes = (secondsLeft % 3600) / 60;
-        seconds = (secondsLeft %3600) % 60;
-        myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
-    }
-    else{
-        secondsLeft = 16925;
-    }
+- (UIView *)thanksView
+{
+    UIView *thanksView = [[UIView alloc] init];
+    thanksView.frame = [UIScreen mainScreen].bounds;
+    thanksView.backgroundColor = kBackgroundColor;
+    
+    UILabel *label = [[UILabel alloc] init];
+    label.text = @"Thanks For Your Submission!";
+    label.frame = CGRectMake(thanksView.center.x-130.0f, thanksView.center.y-100.0f, 270.0f, 50.0f);
+    label.font = [UIFont boldSystemFontOfSize:20.0f];
+    
+    UILabel *label2 = [[UILabel alloc] init];
+    label2.text = @"Your information will be added to your medical records.";
+    label2.frame = CGRectMake(thanksView.center.x-120.0f, thanksView.center.y-60.0f, 250.0f, 50.0f);
+    label2.font = [UIFont boldSystemFontOfSize:15.0f];
+    //label2.lineBreakMode = UILineBreakModeWordWrap;
+    label2.numberOfLines = 0;
+    label2.textColor = [UIColor grayColor];
+    label2.textAlignment = UITextAlignmentCenter;
+    
+    //Need to add Return Button so it can return to MAINVIEW
+    UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    returnButton.frame = CGRectMake(thanksView.center.x-100.0f, thanksView.center.y+140.0f, 100.0f, 50.0f);
+    [returnButton setTitle:@"Return to Triage" forState:UIControlStateNormal];
+    returnButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
+    returnButton.titleLabel.textColor= [UIColor redColor];
+    [[returnButton layer] setBorderWidth:2.0f];
+    [[returnButton layer] setBorderColor:[UIColor redColor].CGColor];
+    [returnButton addTarget:self action:@selector(Return_OnClick:)    forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [thanksView addSubview:label];
+    [thanksView addSubview:label2];
+    [thanksView addSubview:returnButton];
+    
+    // Ternary goodies
+    return thanksView;
 }
 
--(void)countdownTimer{
-    
-    secondsLeft = hours = minutes = seconds = 0;
-    if([timer isValid])
-    {
-        //NSString *result = nil;
-        [timer release];
-        //[self.view addSubview:timer];
-//        result = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
-        
-    }
-        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
-        [pool release];
-    
-    
-//    else
-//    {
-//     result = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+-(IBAction)Submit_OnClick:(id)sender {
+    self.view=[self thanksView];
+}
+
+-(IBAction)Return_OnClick:(id)sender {
+    self.view=[self mainView];
+}
+
+//- (void)updateCounter:(NSTimer *)theTimer {
+//    if(secondsLeft > 0 ){
+//        secondsLeft -- ;
+//        hours = secondsLeft / 3600;
+//        minutes = (secondsLeft % 3600) / 60;
+//        seconds = (secondsLeft %3600) % 60;
+//        myCounterLabel.text = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
 //    }
-    
-
-}
+//    else{
+//        secondsLeft = 16925;
+//    }
+//}
+//
+//
+//
+//-(void)countdownTimer{
+//    
+//    secondsLeft = hours = minutes = seconds = 0;
+//    if([timer isValid])
+//    {
+//        //NSString *result = nil;
+//        [timer release];
+//        //[self.view addSubview:timer];
+////        result = [NSString stringWithFormat:@"%02d:%02d:%02d", hours, minutes, seconds];
+//        
+//    }
+//        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//        timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(updateCounter:) userInfo:nil repeats:YES];
+//        [pool release];
+//    
+//    
+////    else
+////    {
+////     result = [NSString stringWithFormat:@"%02d:%02d", minutes, seconds];
+////    }
+//    
+//
+//}
 
 //- (void)drawRect:(CGRect)rect {
 //    [super drawRect:rect];
