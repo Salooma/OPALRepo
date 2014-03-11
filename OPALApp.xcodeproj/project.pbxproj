@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FC5953F18CF4CFE0018539C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC5953E18CF4CFE0018539C /* Mapbox.framework */; };
 		5CB0838F18AC08F300F36036 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */; };
 		5CB0839218AC1B2B00F36036 /* PasswordHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0839118AC1B2B00F36036 /* PasswordHandler.m */; };
 		5CE3F12918CD689B00DE829C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3F12818CD689B00DE829C /* QuartzCore.framework */; };
-		5CE3FB0318CE5E1500DE829C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0218CE5E1500DE829C /* Mapbox.framework */; };
 		5CE3FB0518CE602500DE829C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0418CE602500DE829C /* CoreLocation.framework */; };
 		5CE3FB0918CE642C00DE829C /* Mapbox.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5CE3FB0818CE642C00DE829C /* Mapbox.bundle */; };
 		5CE3FB0B18CE664C00DE829C /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */; };
@@ -67,12 +67,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FC5953E18CF4CFE0018539C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
 		5CB0838C18AC08F300F36036 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		5CB0839018AC1B2B00F36036 /* PasswordHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHandler.h; sourceTree = "<group>"; };
 		5CB0839118AC1B2B00F36036 /* PasswordHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PasswordHandler.m; sourceTree = "<group>"; };
 		5CE3F12818CD689B00DE829C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		5CE3FB0218CE5E1500DE829C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = ../../../Desktop/Mapbox.framework; sourceTree = "<group>"; };
 		5CE3FB0418CE602500DE829C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		5CE3FB0818CE642C00DE829C /* Mapbox.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Mapbox.bundle; sourceTree = "<group>"; };
 		5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -159,7 +159,7 @@
 				5CE3FB0D18CE666300DE829C /* libz.dylib in Frameworks */,
 				5CE3FB0B18CE664C00DE829C /* libsqlite3.dylib in Frameworks */,
 				5CE3FB0518CE602500DE829C /* CoreLocation.framework in Frameworks */,
-				5CE3FB0318CE5E1500DE829C /* Mapbox.framework in Frameworks */,
+				0FC5953F18CF4CFE0018539C /* Mapbox.framework in Frameworks */,
 				5CE3F12918CD689B00DE829C /* QuartzCore.framework in Frameworks */,
 				EF5CAC361890774200E6F164 /* CoreGraphics.framework in Frameworks */,
 				EF5CAC381890774200E6F164 /* UIKit.framework in Frameworks */,
@@ -204,10 +204,10 @@
 		EF5CAC321890774200E6F164 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0FC5953E18CF4CFE0018539C /* Mapbox.framework */,
 				5CE3FB0C18CE666300DE829C /* libz.dylib */,
 				5CE3FB0A18CE664C00DE829C /* libsqlite3.dylib */,
 				5CE3FB0418CE602500DE829C /* CoreLocation.framework */,
-				5CE3FB0218CE5E1500DE829C /* Mapbox.framework */,
 				5CE3F12818CD689B00DE829C /* QuartzCore.framework */,
 				EF5CAC331890774200E6F164 /* Foundation.framework */,
 				EF5CAC351890774200E6F164 /* CoreGraphics.framework */,
@@ -613,10 +613,12 @@
 					"$(inherited)",
 					/Users/salmahindy/Documents/Developer/OPAL,
 					/Users/salmahindy/Desktop,
+					/Users/Hadi/Desktop/dev,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
 				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
@@ -648,10 +650,12 @@
 					"$(inherited)",
 					/Users/salmahindy/Documents/Developer/OPAL,
 					/Users/salmahindy/Desktop,
+					/Users/Hadi/Desktop/dev,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OPALApp/OPALApp-Prefix.pch";
 				INFOPLIST_FILE = "OPALApp/OPALApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/salmahindy/Documents/Developer/OPAL/OPALApp/MapBox-iOS-SDK/MapView/Map/GRMustache/lib",
