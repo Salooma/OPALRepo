@@ -63,7 +63,8 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 #endif
 // Backgrounds
 #define kEnterPasscodeLabelBackgroundColor [UIColor clearColor]
-#define kBackgroundColor [UIColor colorWithRed:0.97f green:0.97f blue:1.0f alpha:1.00f]
+//#define kBackgroundColor [UIColor colorWithRed:0.97f green:0.97f blue:1.0f alpha:1.00f]
+#define kBackgroundColor [UIColor whiteColor]
 #define kCoverViewBackgroundColor [UIColor colorWithRed:0.97f green:0.97f blue:1.0f alpha:1.00f]
 #define kPasscodeBackgroundColor [UIColor clearColor]
 #define kFailedAttemptLabelBackgroundColor [UIColor colorWithRed:0.8f green:0.1f blue:0.2f alpha:1.000f]
@@ -117,6 +118,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     [self.segmentControl addTarget:self
                             action:@selector(switchView:)
                   forControlEvents:UIControlEventValueChanged];
+    self.segmentControl.tintColor = kLabelTextColor;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -307,18 +309,21 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     UILabel *label1 = [[UILabel alloc] init];
     label1.text = @"You are currently:";
-    label1.frame = CGRectMake(mainView.center.x-75.0f, mainView.center.y-180.0f, 150.0f, 50.0f);
+    label1.frame = CGRectMake(mainView.center.x-75.0f, mainView.center.y-180.0f, 180.0f, 50.0f);
+    label1.font= [UIFont fontWithName:@"HelveticaNeue-Light" size:21];
    
     UILabel *label2 = [[UILabel alloc] init];
     label2.text = @"in line.";
-    label2.frame = CGRectMake(mainView.center.x-35.0f, mainView.center.y-30.0f, 150.0f, 50.0f);
+    label2.frame = CGRectMake(mainView.center.x-35.0f, mainView.center.y-35.0f, 150.0f, 50.0f);
+    label2.font= [UIFont fontWithName:@"HelveticaNeue-Light" size:21];
     
     UILabel *label3 = [[UILabel alloc] init];
     label3.text = @"Estimated Wait Time";
-    label3.frame = CGRectMake(mainView.center.x-95.0f, mainView.center.y+70.0f, 200.0f, 50.0f);
+    label3.frame = CGRectMake(mainView.center.x-110.0f, mainView.center.y+70.0f, 250.0f, 50.0f);
+    label3.font= [UIFont fontWithName:@"HelveticaNeue-Light" size:25];
     //label3.font =[label3.font fontWithSize:20];
     label3.textColor = [UIColor redColor];
-    label3.font = [UIFont boldSystemFontOfSize:20.0f];
+    
     
     UILabel *label4 = [[UILabel alloc] init];
     label4.text = @"30:58";
@@ -370,22 +375,24 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     UILabel *label1 = [[UILabel alloc] init];
     label1.text = @"Describe how you are feeling:";
+    label1.font = [UIFont fontWithName:@"HelveticaNeue-Light-B" size:17];
     label1.frame = CGRectMake(medicalView.center.x-115.0f, medicalView.center.y-190.0f, 230.0f, 50.0f);
     
     UITextField *textBox = [[UITextField alloc] init];
     textBox.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 100.0f);
     textBox.borderStyle=UITextBorderStyleRoundedRect;
-    textBox.font = [UIFont systemFontOfSize:15];
+    textBox.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
     textBox.placeholder=@"Discuss symptoms or general concerns.";
     
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
     submitButton.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+170.0f, 200.0f, 40.0f);
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
-    submitButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
-    submitButton.titleLabel.textColor= [UIColor redColor];
+    submitButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light-B" size: 17.0f];
+    submitButton.titleLabel.textColor= [UIColor whiteColor];
     [[submitButton layer] setBorderWidth:2.0f];
-    [[submitButton layer] setBorderColor:[UIColor redColor].CGColor];
+    [[submitButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     [submitButton addTarget:self action:@selector(Submit_OnClick:)    forControlEvents:UIControlEventTouchUpInside];
+    submitButton.backgroundColor = kLabelTextColor;
     //[submit addTarget:self action:@selector(callDeny) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -532,12 +539,12 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     UILabel *label = [[UILabel alloc] init];
     label.text = @"Thanks For Your Submission!";
     label.frame = CGRectMake(thanksView.center.x-130.0f, thanksView.center.y-100.0f, 270.0f, 50.0f);
-    label.font = [UIFont boldSystemFontOfSize:20.0f];
+    label.font= [UIFont fontWithName:@"HelveticaNeue-Light" size:20];
     
     UILabel *label2 = [[UILabel alloc] init];
     label2.text = @"Your information will be added to your medical records.";
     label2.frame = CGRectMake(thanksView.center.x-120.0f, thanksView.center.y-60.0f, 250.0f, 50.0f);
-    label2.font = [UIFont boldSystemFontOfSize:15.0f];
+    label2.font= [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
     //label2.lineBreakMode = UILineBreakModeWordWrap;
     label2.numberOfLines = 0;
     label2.textColor = [UIColor grayColor];
@@ -545,13 +552,14 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     //Need to add Return Button so it can return to MAINVIEW
     UIButton *returnButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    returnButton.frame = CGRectMake(thanksView.center.x-100.0f, thanksView.center.y+140.0f, 100.0f, 50.0f);
+    returnButton.frame = CGRectMake(thanksView.center.x-80.0f, thanksView.center.y+60.0f, 160.0f, 40.0f);
     [returnButton setTitle:@"Return to Triage" forState:UIControlStateNormal];
     returnButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size: 15.0f];
-    returnButton.titleLabel.textColor= [UIColor redColor];
+    returnButton.titleLabel.textColor= [UIColor whiteColor];
     [[returnButton layer] setBorderWidth:2.0f];
-    [[returnButton layer] setBorderColor:[UIColor redColor].CGColor];
+    [[returnButton layer] setBorderColor:[UIColor whiteColor].CGColor];
     [returnButton addTarget:self action:@selector(Return_OnClick:)    forControlEvents:UIControlEventTouchUpInside];
+    returnButton.backgroundColor = kLabelTextColor;
     
     
     [thanksView addSubview:label];
