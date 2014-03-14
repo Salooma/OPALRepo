@@ -326,17 +326,25 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     
     
     UILabel *label4 = [[UILabel alloc] init];
-    label4.text = @"30:58";
-    label4.frame = CGRectMake(mainView.center.x-50.0f, mainView.center.y+105.0f, 100.0f, 50.0f);
+    label4.text = @"06:30:58";
+    label4.frame = CGRectMake(mainView.center.x-80.0f, mainView.center.y+105.0f, 150.0f, 50.0f);
     label4.font =[label4.font fontWithSize:35];
     label4.textColor = [UIColor redColor];
     
+    
     UILabel *label5 = [[UILabel alloc] init];
-    label5.text = @"3rd";
-    label5.frame = CGRectMake(mainView.center.x-80.0f, mainView.center.y-130.0f, 190.0f, 90.0f);
-    label5.font =[label4.font fontWithSize:105];
+    label5.text = @"24";
+    label5.frame = CGRectMake(mainView.center.x-80.0f, mainView.center.y-130.0f, 220.0f, 90.0f);
+    label5.font =[label5.font fontWithSize:115];
     label5.textColor = [UIColor darkGrayColor];
     
+    
+    UILabel *label6 = [[UILabel alloc] init];
+    label6.text = @"th";
+    label6.frame = CGRectMake(mainView.center.x+40.0f, mainView.center.y-115.0f, 100.0f, 90.0f);
+    label6.font =[label6.font fontWithSize:60];
+    label6.textColor = [UIColor darkGrayColor];
+
 //    [[UIColor blackColor] setFill];
 //    UIRectFill((CGRect){0,200,rect.size.width,1});
   
@@ -360,6 +368,7 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     [mainView addSubview:label3];
     [mainView addSubview:label4];
     [mainView addSubview:label5];
+    [mainView addSubview:label6];
     
     return mainView;
     
@@ -379,13 +388,14 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
     label1.frame = CGRectMake(medicalView.center.x-115.0f, medicalView.center.y-190.0f, 230.0f, 50.0f);
     
     UITextField *textBox = [[UITextField alloc] init];
-    textBox.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 100.0f);
+    textBox.frame=CGRectMake(medicalView.center.x-150.0f, medicalView.center.y-150.0f, 300.0f, 150.0f);
     textBox.borderStyle=UITextBorderStyleRoundedRect;
     textBox.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:15];
     textBox.placeholder=@"Discuss symptoms or general concerns.";
     
+    
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    submitButton.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+170.0f, 200.0f, 40.0f);
+    submitButton.frame = CGRectMake(medicalView.center.x-100.0f, medicalView.center.y+10.0f, 200.0f, 40.0f);
     [submitButton setTitle:@"Submit" forState:UIControlStateNormal];
     submitButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light-B" size: 17.0f];
     submitButton.titleLabel.textColor= [UIColor whiteColor];
@@ -682,19 +692,19 @@ static NSInteger const kMaxNumberOfAllowedFailedAttempts = 10;
 }
 
 #pragma mark - Password View End of Life
-- (void)cancelAndDismissMe {
-	_isCurrentlyOnScreen = NO;
-	[_passcodeTextField resignFirstResponder];
-	_isUserBeingAskedForNewPasscode = NO;
-	_isUserChangingPasscode = NO;
-	_isUserConfirmingPasscode = NO;
-	_isUserEnablingPasscode = NO;
-	_isUserTurningPasscodeOff = NO;
-    
-	[self resetUI];
-
-	[self dismissViewControllerAnimated: YES completion: nil];
-}
+//- (void)cancelAndDismissMe {
+//	_isCurrentlyOnScreen = NO;
+//	[_passcodeTextField resignFirstResponder];
+//	_isUserBeingAskedForNewPasscode = NO;
+//	_isUserChangingPasscode = NO;
+//	_isUserConfirmingPasscode = NO;
+//	_isUserEnablingPasscode = NO;
+//	_isUserTurningPasscodeOff = NO;
+//    
+//	[self resetUI];
+//
+//	[self dismissViewControllerAnimated: YES completion: nil];
+//}
 
 
 - (void)dismissMe {

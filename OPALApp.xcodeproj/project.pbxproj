@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0FC5953F18CF4CFE0018539C /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FC5953E18CF4CFE0018539C /* Mapbox.framework */; };
+		5CAE99C218CFF2EB0013EFC2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CAE99C118CFF2EB0013EFC2 /* Icon.png */; };
 		5CB0838F18AC08F300F36036 /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */; };
 		5CB0839218AC1B2B00F36036 /* PasswordHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CB0839118AC1B2B00F36036 /* PasswordHandler.m */; };
 		5CE3F12918CD689B00DE829C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE3F12818CD689B00DE829C /* QuartzCore.framework */; };
@@ -68,6 +69,7 @@
 
 /* Begin PBXFileReference section */
 		0FC5953E18CF4CFE0018539C /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Mapbox.framework; sourceTree = "<group>"; };
+		5CAE99C118CFF2EB0013EFC2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../../../Desktop/Icon.png; sourceTree = "<group>"; };
 		5CB0838C18AC08F300F36036 /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
 		5CB0838D18AC08F300F36036 /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
 		5CB0839018AC1B2B00F36036 /* PasswordHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PasswordHandler.h; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 		EF5CAC271890774200E6F164 = {
 			isa = PBXGroup;
 			children = (
+				5CAE99C118CFF2EB0013EFC2 /* Icon.png */,
 				5CE3FB0818CE642C00DE829C /* Mapbox.bundle */,
 				EF5CAC391890774200E6F164 /* OPALApp */,
 				EF5CAC581890774300E6F164 /* OPALAppTests */,
@@ -360,6 +363,7 @@
 				EF5CAC2C1890774200E6F164 /* Sources */,
 				EF5CAC2D1890774200E6F164 /* Frameworks */,
 				EF5CAC2E1890774200E6F164 /* Resources */,
+				50524F424C454D533F /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -397,9 +401,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Alexander Figueroa";
 				TargetAttributes = {
-					EF5CAC2F1890774200E6F164 = {
-						DevelopmentTeam = UMXY8HL442;
-					};
 					EF5CAC501890774200E6F164 = {
 						TestTargetID = EF5CAC2F1890774200E6F164;
 					};
@@ -429,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CAE99C218CFF2EB0013EFC2 /* Icon.png in Resources */,
 				EF5CACB41890B07A00E6F164 /* Defaults.plist in Resources */,
 				EF5CAC4C1890774200E6F164 /* Images.xcassets in Resources */,
 				5CE3FB0918CE642C00DE829C /* Mapbox.bundle in Resources */,
@@ -446,6 +448,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50524F424C454D533F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+
+/* Begin PBXShellScriptBuildPhase section */
+		50524F424C454D533F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Library/JailCoder/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/Library/JailCoder/Entitlements/Entitlements.py \"my.company.${PROJECT_NAME}\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 
 /* Begin PBXSourcesBuildPhase section */
 		EF5CAC2C1890774200E6F164 /* Sources */ = {
@@ -547,7 +583,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -586,7 +622,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -607,8 +643,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/salmahindy/Documents/Developer/OPAL,
@@ -644,8 +680,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/salmahindy/Documents/Developer/OPAL,
